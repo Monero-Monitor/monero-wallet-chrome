@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" id="send-html">
+<head>
+  <meta charset="UTF-8">
+  <title>Monero Wallet</title>
+  <link href="/data/css/style-general.css" rel="stylesheet" type="text/css">
+  <link href="/data/css/style-page-send.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="/lib/js/deps/json-bigint/json-bigint.js"></script>
+  <script type="text/javascript" src="/lib/js/utils/funcs.js"></script>
+  <script type="text/javascript" src="/lib/js/utils/wallet-rpc.js"></script>
+  <script type="text/javascript" src="/lib/js/pages/send.js"></script>
+</head>
+<body id="send-body">
+
+  <div id="logo-header">
+    <h1><img id="monero-logo" src="/data/img/logo686white.png"> Monero Wallet</h1>
+  </div>
+  
+  <div class="main-area" id="send-popup">
+    
+    <div id="send-balance-info-popup">
+      <div class="send-info-popup">Balance:</div><div class="send-balance-popup blue" id="send-total-balance-popup"></div>
+      <div class="send-info-popup">Unlocked Balance:</div><div class="send-balance-popup blue" id="send-unlocked-balance-popup"></div>
+    </div>
+    
+    <div class="errormsg" id="send-status-offline">Simplewallet is offline.</div>
+    
+    <h2> Send Monero: </h2>
+    
+    <form id="send-form-popup">
+      
+      <div class="send-row-popup">
+        <div class="send-title-popup" id="send-title-dest-popup">Destination:</div><div class="send-field-popup"><input type="text" class="send-input-dest-popup" id="send-dest-popup-0"></div>
+      </div>
+      
+      <div class="send-row-popup">
+        <div class="send-title-popup" id="send-title-amount-popup">Amount:</div><div class="send-field-popup"><input type="text" class="send-input-amount-popup" id="send-amount-popup-0"></div>
+      </div>
+      
+      <div class="send-row-popup">
+        <div class="send-title-popup">Payment ID:</div><div class="send-field-popup"><input type="text" id="send-pay-id-popup"></div><br>
+      </div>
+      
+      <div class="send-row-popup">
+        <div class="send-title-popup">Mixin (&ge; 3):</div><div class="send-field-popup"><input type="text" id="send-mixin-popup"></div><br>
+      </div>
+      
+      <div class="send-row-popup">
+        <button type='button' id="send-button-popup">Send</button>
+      </div>
+      
+      <div class="errormsg" id="send-error-popup"></div>
+      
+      <div class="successmsg" id="send-success-popup">
+        <h2> Tx Hash List: </h2>
+        <div id="send-txhashlist-popup"></div>
+      </div>
+        
+    </form>
+    
+  </div>
+  
+</body>
+</html>

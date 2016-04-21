@@ -1,0 +1,85 @@
+/* 
+ * Monero Simplewallet Manager Stylesheet
+ * See LICENSE for use.
+ */
+
+/* Style Contacts Page */
+html#contacts-html, body#contacts-body { width: 100%; }
+div#contacts-tab { width: 720px; margin: 5px auto; }
+p#error-contact { width: 100%; margin: 0px; padding: 0px; text-align: center; color:#DD3333; }
+
+div#add-contact-button { margin: 20px auto; width: 100%; text-align: center; }
+
+div#sub-contact-button { margin: 10px -10px; text-align: left; }
+
+div#new-contacts-div {
+  padding: 0px 20px 10px;
+  margin: 10px 35px 5px;
+  width: auto;
+  border: 1px solid #E9E9E9;
+  background: #FFFFFF;
+  text-align: left;
+  display: none;
+}
+div#new-contacts-div h3 { text-align: center; }
+
+#new-contact-name { width: 300px; margin: 2px 0 0; border: 1px solid #E0E0E0; }
+#new-contact-addr { width: 600px; margin: 2px 0 0; border: 1px solid #E0E0E0; }
+#new-contact-info { width: 600px; margin: 2px 0 5px; padding: 1px; border: 1px solid #E0E0E0; resize: vertical; }
+
+h3#contacts-header {
+  background: #505050;
+  margin: 10px 0 0;
+  padding: 5px 10px;
+  width: auto;
+  color: #FAFAFA;
+}
+
+ul#contact-list {
+  list-style: none;
+  width: 100%;
+  margin: 0px auto 5px;
+  border: 0px solid #E9E9E9;
+  border-top-width: 1px;
+  padding: 0;
+}
+
+ul#contact-list li {
+  font-size: 11pt;
+  padding: 10px;
+  border: 0px solid #E9E9E9;
+  border-bottom-width: 1px;
+}
+
+div.contact-name {
+  width: 100%;
+  margin: 0 0 10px;
+  font-size: 14pt;
+  font-weight: bold;
+  color: #505050;
+}
+
+div.contact-xmr-addr {
+  margin: 10px 0;
+  width: auto;
+  border: 1px solid #E9E9E9;
+  background: #FFFFFF;
+  padding: 5px;
+  overflow: hidden;
+  font-size: 9pt;
+  border-radius: 5px;
+  font-family: monospace;
+  text-align: center;
+}
+
+div.contact-info {
+  margin: 10px 0;
+  width: auto;
+  padding: 0 5px;
+}
+div.contact-remove { width: 100%; margin: 10px 0 0; text-align: right; }
+.contact-remove-label { color: #DD0000; }
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}

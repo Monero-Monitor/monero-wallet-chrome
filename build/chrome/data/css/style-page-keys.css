@@ -1,0 +1,27 @@
+/* 
+ * Monero Simplewallet Manager Stylesheet
+ * See LICENSE for use.
+ */
+
+/* Style Keys Page Tab */
+html#keys-html, body#keys-body { width: 100%; }
+div#keys-tab { width: 720px; margin: 5px auto; }
+div#keys-tab p {
+  border: 1px solid #E0E0E0;
+  padding: 10px 10px;
+  width: auto;
+  margin: 5px;
+  background: #FFFFFF;
+  color: #313131; /* #FC6622; */
+  font-size: 13pt;
+  text-align: center;
+  font-family: monospace;
+}
+p#error-key {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color:#DD3333;
+  display: none;
+}

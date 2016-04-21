@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Monero Wallet</title>
+  <link href="/data/css/style-general.css" rel="stylesheet" type="text/css">
+  <link href="/data/css/style-popup.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="/lib/js/deps/qrcode/qrcode.min.js"></script>
+  <script type="text/javascript" src="/lib/js/deps/json-bigint/json-bigint.js"></script>
+  <script type="text/javascript" src="/lib/js/utils/funcs.js"></script>
+  <script type="text/javascript" src="/lib/js/utils/wallet-rpc.js"></script>
+  <script type="text/javascript" src="/lib/js/utils/contactsDB.js"></script>
+  <script type="text/javascript" src="/lib/js/popup.js"></script>
+  <script type="text/javascript" src="/lib/js/navigation.js"></script>
+</head>
+<body>
+
+  <div id="logo-header">
+    <h1><img id="monero-logo" src="/data/img/logo686white.png"> Monero Wallet</h1>
+    
+    <div id="nav-menu">
+      <div id="menuButton"><img id="menu-img" src="/data/img/ic_menu_grey600_48dp.png" /></div>
+      <ul id="navbar">
+        <li class="nav-button" id="overviewButton" data-tip="View general wallet information.">Overview</li>
+        <li class="nav-button" id="sendButton" data-tip="Send Monero to another wallet.">Send</li>
+        <li class="nav-button" id="receiveButton" data-tip="Receive Monero at this wallet.">Receive</li>
+        <li class="nav-button" id="transactionsButton" data-tip="View wallet transaction information.">Transactions</li>
+      </ul>
+    </div>
+    
+    <ul id="menubar">
+      <li class="nav-menu-button" id="keysButton"><img id="keys-icon"> Get Keys</li>
+      <li class="nav-menu-button" id="contactsButton"><img id="contacts-icon"> Contacts</li>
+      <li class="nav-menu-button" id="settingsButton"><img id="settings-icon"> Settings</li>
+      <li class="nav-menu-button" id="stopButton"><img id="stop-icon"> Stop Wallet</li>
+    </ul>
+    
+  </div>
+  
+  <div class="main-area">
+    
+    <!--  -->
+    <div id="status-tab">
+      <h3> Wallet Status: </h3>
+      
+      <div class="errormsg" id="status-error" style="display: inline-block;">
+        Simplewallet is not available over RPC at Port <span id="status-port"></span>.
+      </div>
+      
+      <div class="successmsg" id="status-success">
+        Simplewallet was successfully closed.
+      </div>
+    </div>
+    
+    <!-- Overview Tab -->
+    <div id="overview-tab">
+    
+      <h3> Wallet Overview: </h3>
+      
+      <div id="address-string"></div><div id="address-string-ell"></div>
+      
+      <div id="overview-info">
+        <table class="infotable" id="overview">
+          <tr id="overview-line-top">
+            <td class="overview-type">Balance:</td>
+            <td class="overview-fill"><span class="lightgray" id="balance">--</span></td>
+          </tr>
+          <tr>
+            <td class="overview-type">Unlocked:</td>
+            <td class="overview-fill"><span class="lightgray" id="unlocked-balance">--</span></td>
+          </tr>
+          <tr>
+            <td class="overview-type">Height:</td>
+            <td class="overview-fill"><span class="lightgray" id="wallet-height">--</span></td>
+          </tr>
+          <tr>
+            <td class="overview-type">Status:</td>
+            <td class="overview-fill"><span id="wallet-status-online">Online</span><span id="wallet-status-offline">Offline</span></td>
+          </tr>
+        </table>
+      </div>
+      
+      <div id="address-info">
+        <div id="address-qr"></div>
+      </div>
+      
+      
+      <div class="errormsg" id="overview-error"></div>
+      
+    </div><!-- End of Overview Tab -->
+    
+    <!-- Send Tab -->
+    <div id="send-tab">
+      
+      <div id="send-balance-info">
+        <div class="send-info">Balance:</div><div class="send-balance lightgray" id="send-total-balance"></div>
+        <div class="send-info">Unlocked:</div><div class="send-balance lightgray" id="send-unlocked-balance"></div>
+      </div>
+      
+      <h3> Send Monero: </h3>
+    
+      <div id="send-contact-list">
+        <div id="cancel-send-contact"><img class="add-sub subtraction" id="cancel-contact"/></div>
+        <h3 id="pick-contact-list">Pick a Contact:</h3>
+        <ul id="send-contacts"></ul>
+      </div>
+      
+      <form id="send-form">
+        
+        <div id="send-dest-and-amount">
+          
+          <div class="send-title" id="send-title-dest">Destination:</div><div class="send-title" id="send-title-amount">Amount:</div><br>
+          
+          <div class="send-dest-field"><input type="text" class="send-input-dest" id="send-dest-0"  placeholder="Enter destination address"><img class="send-contact-icon" id="send-contact-0"></div><div class="send-amount-field"><input type="text" class="send-input-amount" id="send-amount-0"  placeholder="Enter amount (XMR)"></div>
+          
+        </div>
+        
+        <div id="send-pm-dests">
+          <img class="add-sub addition" id="add-dest" />
+          <img class="add-sub subtraction" id="subtract-dest" />
+        </div>
+        
+        <div class="form-field-row">
+          <div class="send-title">Payment ID:</div><div class="send-field"><input type="text" id="send-pay-id" placeholder="Enter payment ID (optional)"></div>
+        </div>
+        
+        <div class="form-field-row">
+          <div class="send-title">Mixin (&ge; 3):</div><div class="send-field"><input type="text" id="send-mixin" placeholder="Enter mixin (optional)"></div>
+        </div>
+        
+        <button type="button" id="send-button">Send</button>
+      
+        <div class="errormsg" id="send-error"></div>
+        
+        <div class="successmsg" id="send-success">
+          <p>Send successful!</p>
+          <h3 class="center"> Tx Hash List: </h3>
+          <div id="send-txhashlist-popup"></div>
+        </div>
+        
+      </form>
+      
+    </div><!-- End of Send Tab -->
+    
+    <!-- Receive Tab -->
+    <div id="receive-tab">
+      <h3> Receive Monero: </h3>
+      <form id="receive-form">
+		
+		<div id="receive-qr-message">
+		    Use the form below to create a payment QR code*.
+		    Once generated, you can embed this code by right-clicking it and saving the image.
+		</div>
+		
+        <div id="receive-toggle-settings">
+        
+          <div class="receive-setting">Use an Integrated Payment ID?</div><!--
+       --><div class="receive-toggle" id="payment-toggle">
+            <input type="radio" name="int-pay-id" value="1">Yes &nbsp; 
+		    <input type="radio" name="int-pay-id" value="0" checked>No
+		  </div>
+		  
+		</div>
+		
+		<div class="form-field-row">
+		  <div class="receive-title">Amount: &nbsp;</div><div class="receive-field"><input type="text" id="receive-amount" placeholder="Enter amount in XMR"></div><br>
+        </div>
+        
+        <div class="form-field-row" id="receive-pay-id-div">
+          <div class="receive-title">Payment ID: &nbsp;</div><div class="receive-field"><input type="text" id="receive-pay-id"  placeholder="Enter payment ID (32-byte hexadecimal string)"><div id="random-pay-id">Random</div></div>
+        </div>
+        
+		<p class="small right">*All fields are optional.</p>
+        
+        <button type="button" id="receive">Generate QR Code</button>
+        
+        <div class="errormsg" id="receive-error"></div>
+        
+        <div id="receive-integrated-address"></div><div id="receive-integrated-address-ell"></div>
+        
+        <div id="receive-qr-info">
+          <div id="receive-qr"></div>
+        </div>
+        
+      </form>
+    </div><!-- End of Receive Tab -->
+    
+    <!-- Transactions Tab -->
+    <div id="transactions-tab">
+    
+      <h3> Incoming Transactions: </h3>
+      
+      <table class="infotable" id="in-txs-table"></table>
+      
+      <div class="errormsg" id="txs-error"></div>
+      
+    </div><!-- End of Transactions Tab -->
+    
+  </div>
+  
+  <div id="footer">The Monero Simplewallet Manager is distributed without warranty under the <a href="/LICENSE" target="_blank">MIT License</a>.</div>
+
+</body>
+</html>

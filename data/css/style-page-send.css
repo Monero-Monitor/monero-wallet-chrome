@@ -1,0 +1,48 @@
+/* 
+ * Monero Simplewallet Manager Stylesheet
+ * See LICENSE for use.
+ */
+
+/* Style Send Page Tab */
+html#send-html, body#send-body { width: 100%; font-size: 14pt; }
+div#send-popup { width: 720px; margin: 5px auto; }
+
+div#send-status-offline { width: 100%; margin: 0; padding: 10px 0; display: none; }
+
+div#send-balance-info-popup {
+  border: 0px solid #E9E9E9;
+  border-width: 1px 0px;
+  margin: 5px auto;
+  text-align: center;
+}
+div.send-info-popup {
+  margin: 0;
+  margin-left: 40px;
+  line-height:30px;
+  font-weight: bold;
+  text-align: left;
+  display: inline-block;
+}
+div.send-balance-popup {
+  width: 100px;
+  margin: 0;
+  margin-right: 40px;
+  line-height:30px;
+  text-align: right;
+  display: inline-block;
+}
+
+form#send-form-popup { width: 100%; display: inline-block; margin: 5px auto; }
+div.send-row-popup { width: 100%; display: inline-block; margin: 5px auto; text-align: center;}
+
+div.send-title-popup, div.send-field-popup { display: inline-block; text-align: left; margin: 0; }
+div.send-title-popup { width: 130px; font-weight: bold;  }
+div.send-field-popup { width: 590px; display: inline-block; text-align: left; }
+
+.send-input-dest-popup { width: 585px; }
+.send-input-amount-popup { width: 200px; }
+#send-pay-id-popup  { width: 585px; }
+#send-mixin-popup { width: 100px; }
+
+div#send-error-popup, div#send-success-popup { width: 500px; margin: 5px auto; display: none; }
+div#send-txhashlist-popup { width: 100%; }

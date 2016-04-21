@@ -1,0 +1,48 @@
+{
+  "manifest_version": 2,
+  "name": "Monero Wallet for Chrome",
+  "short_name":"Monero Wallet",
+  "author": "bigreddmachine",
+  "version": "0.5",
+  "version_name": "0.5-alpha",
+  "description": "A Chrome extension for using Monero's simplewallet",
+  "icons": {
+    "128":"data/img/logo128.png",
+    "256":"data/img/logo256.png",
+    "686":"data/img/logo686.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "data/img/logo19.png",
+      "38": "data/img/logo38.png"
+    },
+    "default_title": "Monero Wallet for Chrome",
+    "default_popup": "data/html/popup.html"
+  },
+  "options_ui": {
+    "page": "data/html/options.html",
+    "chrome_style": true
+  },
+  "background": {
+    "scripts": [
+      "lib/js/deps/json-bigint/json-bigint.js",
+      "lib/js/utils/funcs.js",
+      "lib/js/utils/wallet-rpc.js",
+      "lib/js/background/send.js",
+      "lib/js/background/wallet.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["lib/js/content/uri-checker.js"],
+      "all_frames": true,
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "storage",
+    "tabs",
+    "http://127.0.0.1/*"
+  ]
+}

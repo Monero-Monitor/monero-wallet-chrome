@@ -1,0 +1,438 @@
+/* 
+ * Monero Simplewallet Manager Stylesheet
+ * See LICENSE for use.
+ */
+
+/* Menu Button and Menu */
+div#nav-menu { width: 450px; height: 30px; display: inline-text; background-color: #313131; }
+
+div#menuButton { width: 30px; height: 30px; margin: 0; padding: 0; display: block; float: left}
+
+img#menu-img { height: 20px; margin: 3px; cursor:pointer; }
+
+img#menu-img:hover { content:url("/data/img/ic_menu_white_48dp.png"); }
+
+ul#menubar {
+  width: 119px;
+  list-style-type: none;
+  margin: 0px auto;
+  border:0px solid #505050;
+  border-right-width: 1px;
+  padding: 0px;
+  display: none;
+  float:left;
+  position: absolute;
+  left: 0;
+  top: 97px;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  z-index: 5000;
+  cursor:pointer;
+}
+
+li.nav-menu-button {
+  width: 99px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #313131;
+  padding: 0px 10px;
+  margin: 0px;
+  border-collapse: collapse;
+  border:0px solid #505050;
+  border-bottom-width: 1px;
+  display:inline;
+  float: left;
+  cursor:pointer;
+  color: #FAFAFA;
+  font-size:14px;
+  text-align: left;
+  text-decoration:none;
+  outline: 0;
+}
+
+li.nav-menu-button:hover, button.nav-menu-button:active {
+	background-color: #FAFAFA;
+	color:#313131;
+}
+
+img#keys-icon {
+  height: 18px;
+  width: 18px;
+  content:url("/data/img/ic_vpn_key_grey600_48dp.png");
+  vertical-align: top;
+  position: relative;
+  top: 6px;
+}
+
+img#contacts-icon {
+  height: 18px;
+  width: 18px;
+  content:url("/data/img/ic_contacts_grey600_48dp.png");
+  vertical-align: top;
+  position: relative;
+  top: 6px;
+}
+
+img#settings-icon {
+  height: 18px;
+  width: 18px;
+  content:url("/data/img/ic_settings_applications_grey600_48dp.png");
+  vertical-align: top;
+  position: relative;
+  top: 6px;
+}
+
+img#stop-icon {
+  height: 18px;
+  width: 18px;
+  content:url("/data/img/ic_settings_power_grey600_48dp.png");
+  vertical-align: top;
+  position: relative;
+  top: 6px;
+}
+
+/* Navbar */
+ul#navbar {
+  width: 420px;
+  list-style-type: none;
+  margin: 0px auto;
+  border:0px solid #505050;
+  padding: 0px;
+  display: block;
+  float:left;
+  position: relative;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+}
+
+li.nav-button {
+  width: 104px;
+  background-color: #313131;
+  padding: 6px 0px;
+  margin: 0px;
+  margin-bottom: 1px;
+  border-collapse: collapse;
+  border:0px solid #505050;
+  border-left-width: 1px;
+  display:inline;
+  float: left;
+  cursor:pointer;
+  color: #FAFAFA;
+  font-size:14px;
+  text-align:center;
+  text-decoration:none;
+  outline: 0;
+}
+
+li.nav-button:hover, button.nav-button:active {
+	background-color: #FAFAFA;
+	color:#313131;
+}
+
+li.nav-button::before {
+  content: attr(data-tip);
+  font-size: 10pt;
+  position: absolute;
+  z-index: 999;
+  white-space: nowrap;
+  bottom: 200px;
+  left: 20px;
+  width: auto;
+  margin-left: 0px;
+  background:#FAFAFA;
+  border: 1px solid #FC6622;
+  border-radius: 4px;
+  color: #FC6622;
+  padding: 0px 7px;
+  text-align: left;
+  height: 24px;
+  line-height: 24px;
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+li.nav-button:hover::before { opacity: 1; bottom: 30px; transition-delay: 0.75s; }
+
+
+/* 
+ * General Tabs Formatting
+ */
+#status-tab, #overview-tab, #send-tab, #receive-tab, #transactions-tab {
+  width: 100%;
+  min-height: 275px;
+  text-align: center;
+}
+
+#status-tab { display: none; }
+
+/*
+ * Overview Tab:
+ */
+div#overview-tab { display: block; }
+
+table#overview { width: 288px; display: inline-block; }
+
+tr#overview-line-top { border-top-width: 1px; }
+
+td.overview-type { text-align: left; width: 83px; font-size: 11pt; font-weight: bold; color: #313131; }
+
+td.overview-fill { text-align: right; width: 205px; font-size: 11pt; }
+
+div#overview-info, div#address-info { display: inline-block; vertical-align: top; }
+div#overview-info { width: 288px; margin: 5px 20px 5px 0; }
+div#address-info { width: 192px; margin: 5px 0; }
+
+div#address-qr { width: 192px; margin: 5px auto; padding: 0; display: inline-block; }
+
+div#address-string {
+  width: 490px;
+  margin: 5px 0;
+  padding: 0;
+  font-size: 10pt;
+  overflow: hidden;
+  display: inline-block;
+}
+
+div#address-string-ell {
+  width: 10px;
+  margin: 5px 0;
+  padding: 0;
+  font-size: 10pt;
+  overflow: hidden;
+  display: inline-block;
+}
+
+div#overview-error { width: 400px; margin: 5px auto; display: none; }
+
+span#wallet-status-online { color: #33DD33; display: none; }
+span#wallet-status-offline { color: #DD3333; display: none; }
+
+
+/*
+ * Send Tab
+ */
+div#send-tab { display: none; position: relative; }
+
+div#send-contact-list {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 115px;
+  width: 270px;
+  padding: 10px;
+  z-index: 2001;
+  background: #FAFAFA;
+  border: 1px solid #E0E0E0;
+}
+
+div#cancel-send-contact { margin: -5px; display: block; float: right; z-index: 2002; }
+img#cancel-contact { background-color: #FAFAFA; }
+
+h3#pick-contact-list {
+  width: 100%;
+  border: 0;
+  margin: 0;
+  padding: 10px 0;
+  background: #505050;
+  color: #FAFAFA;
+  font-weight: bold;
+}
+
+ul#send-contacts {
+  list-style: none;
+  width: 100%;
+  margin: 0px auto 5px;
+  padding: 0;
+}
+ul#send-contacts li {
+  border: 0px solid #E9E9E9;
+  border-bottom-width: 1px;
+  margin: 0px;
+  padding: 10px 50px;
+  width: auto;
+  color: #505050;
+  background: #FAFAFA;
+  cursor: pointer;
+}
+ul#send-contacts li:hover {
+  color: #313131;
+  background: #FFFFFF;
+}
+
+div#send-balance-info {
+  border: 0px solid #E9E9E9;
+  border-width: 1px 0px;
+  margin: 5px auto;
+  text-align: center;
+  font-size: 10pt;
+  width: 500px;
+  display: block;
+}
+div.send-info {
+  margin: 0 5px 0 0;
+  line-height:30px;
+  font-weight: bold;
+  text-align: right;
+  display: inline-block;
+  width:40px; 
+}
+div.send-balance {
+  width: 130px;
+  margin: 0;
+  margin-right: 25px;
+  line-height:30px;
+  text-align: right;
+  display: inline-block;
+}
+
+form#send-form { display: inline-block; margin: 5px auto; }
+
+div.send-title, div.send-field { display: inline-block; text-align: left; margin: 0; }
+div.send-title { width: 120px; font-weight: bold;  }
+div.send-field { width: 380px; }
+
+div#send-dest-and-amount { width: 500px; display: inline-block; margin: 0; padding: 0; }
+div#send-title-dest { width: 350px; display: inline-block; }
+div#send-title-amount { width: 150px; display: inline-block; }
+div.send-dest-field { width: 350px; margin: 1px auto; display: inline-block; text-align: left; }
+div.send-amount-field { width: 150px; margin: 1px auto; display: inline-block; text-align: left; }
+.send-input-dest { width: 310px; }
+.send-input-amount { width: 140px; }
+
+img.send-contact-icon {
+  height: 16px;
+  width: 16px;
+  content:url("/data/img/ic_contacts_grey600_48dp.png");
+  vertical-align: middle;
+  cursor:pointer;
+}
+img.send-contact-icon:hover {
+  content:url("/data/img/ic_contacts_black_48dp.png");
+}
+
+div#send-pm-dests { width: 500px; margin: 5px auto; display: inline-block; text-align:left; }
+
+#send-dest { width: 330px; }
+#send-amount { width: 180px; }
+#send-pay-id { width: 370px; }
+#send-mixin { width: 130px; }
+        
+div#send-error { width: 400px; margin: 5px auto; display: none; }
+
+div#send-success { width: 400px; margin: 5px auto; display: none; }
+
+
+/*
+ * Receive Tab
+ */
+div#receive-tab { display: none; }
+
+div#receive-qr-message {
+  width: 400px;
+  margin: 5px auto;
+  padding: 0;
+  font-size: 11pt;
+  text-align: justify;
+  display: inline-block;
+}
+
+div#receive-toggle-settings {
+  width: 350px;
+  margin: 5px auto;
+  border: 1px solid #E9E9E9;
+  padding: 10px;
+  background: #FFFFFF;
+  display: inline-block;
+}
+
+div.receive-setting { width: 250px; margin: 5px auto; display: inline-block; text-align: left; }
+
+div.receive-toggle { width: 100px; margin: 5px auto; display: inline-block; text-align: left; }
+
+div.receive-title { width: 110px; display: inline-block; text-align: left; font-weight: bold; }
+
+div.receive-field { width: 390px; display: inline-block; text-align: left; }
+
+div.form-field-row { width: 100%; margin:5px 0; display: inline-text; }
+
+#receive-amount { width: 200px; }
+
+#receive-pay-id { width: 320px; display: inline-block; }
+
+#random-pay-id {
+  margin: 0;
+  padding: 0;
+  width: 60px;
+  height: 16px;
+  line-height: 16px;
+  border: 1px solid #AAAAAA;
+  border-radius: 4px;
+  font-size: 8pt;
+  text-align: center;
+  color: #AAAAAA;
+  display: inline-block;
+  cursor: pointer;
+}
+#random-pay-id:hover { border-color: #000000; color: #000000; background: #FFFFFF; }
+
+div#receive-integrated-address {
+  width: 490px;
+  margin: 5px 0;
+  padding: 0;
+  font-size: 10pt;
+  overflow: hidden;
+  display: inline-block;
+}
+
+div#receive-integrated-address-ell {
+  width: 10px;
+  margin: 5px 0;
+  padding: 0;
+  font-size: 10pt;
+  overflow: hidden;
+  display: inline-block;
+}
+
+div#receive-qr-info { width: 100%; display: inline-block; display: none; }
+
+div#receive-qr {
+  width: 192px;
+  margin: 5px auto;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+/*
+ * Transactions Tab
+ */
+div#transactions-tab { display: none; }
+
+table#in-txs-table {
+  width: 500px;
+  font-size: 10pt;
+  display: inline-block;
+  margin: 5px auto;
+  text-align: left;
+  table-layout: fixed;
+  background: #FAFAFA;
+}
+
+tr#tx-line-top {
+  border: 0px;
+  background: #505050;
+  color: #FAFAFA;
+}
+tr.tx-row { width: 500px; }
+
+th { font-weight: bold; text-align: center; }
+th.tx-number { width: 20px; }
+th.tx-amount { width: 140px; }
+th.tx-hash   { width: 340px; }
+
+td.tx-number { width: 20px; text-align: center; }
+td.tx-amount { width: 140px; text-align: right; }
+td.tx-hash { width: 340px; text-align: left; }
+div.in-tx-hash { width: 327px; margin: 0; padding: 0px; overflow: hidden; display: inline-block; vertical-align: middle; }
+div.in-tx-hash-ell { width: 12px; margin: 0; padding: 0px; text-align: center; display: inline-block; vertical-align: middle; }
+
+div#txs-error { width: 400px; margin: 5px auto; display: none; }

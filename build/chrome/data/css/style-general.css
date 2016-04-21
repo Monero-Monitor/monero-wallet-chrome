@@ -1,0 +1,195 @@
+/* 
+ * Monero Simplewallet Manager Stylesheet
+ * See LICENSE for use.
+ */
+
+/*
+ * General Settings
+ */
+html, body { width: 550px; min-height: 375px; padding: 0px; }
+
+html {
+    background: #FAFAFA;
+}
+
+body {
+  margin: 0px;
+  color: #505050;
+  font-family: sans-serif;
+  font-size: 12pt;
+}
+
+.main-area {
+  width: 100%;
+}
+
+.main-area p {
+  padding: 5px 15px;
+  width:auto;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color: #888888; text-decoration: none; outline: 0;
+}
+
+button {
+  margin: 5px auto;
+  padding: 8px;
+  border: 1px solid #FC6622;
+  border-radius: 5px;
+  background: #FAFAFA;
+  text-align: center;
+  color: #FC6622;
+  min-width: 120px;
+  display: block;
+  clear: both;
+  float: center;
+  cursor: pointer;
+}
+
+button:hover, button:active {
+  background: #FFFFFF;
+  font-weight: bold;
+}
+
+div.errormsg {
+  border: 1px solid #DD3333;
+  border-radius: 5px;
+  background: #FFEEEE;
+  text-align: center;
+  font-size: 12pt; 
+  color: #DD3333;
+  display: none;
+  padding: 10px;
+  clear: both;
+  float: center;
+}
+
+div.successmsg {
+  border: 1px solid #33DD33;
+  border-radius: 5px;
+  background: #EEFFEE;
+  text-align: center;
+  font-size: 12pt; 
+  color: #33DD33;
+  display: none;
+  padding: 10px;
+  clear: both;
+  float: center;
+}
+
+.small { font-size: 9pt; margin: 3px 0; }
+.center { width: 100%; text-align: center; }
+.left { width: 100%; text-align: left; }
+.right { width: 100%; text-align: right; }
+
+/* General color handling */
+.lightgray { color: #505050; }
+
+/*
+ * Heading Settings
+ */
+h1 {
+  font-size: 24pt;
+  margin: 2px 0px;
+  padding: 5px 5px 0px;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+}
+
+h2 {
+  margin: 10px 24px 5px;
+  width: auto;
+  font-size: 22pt;
+  font-weight: bold;
+  text-align: center;
+  color: #313131;
+}
+
+h3 { margin: 10px 0px 5px 5px; font-size: 18pt; padding: 0px; }
+
+h4 { margin: 8px 0px 2px; font-size: 16pt; font-weight: bold; }
+
+/*
+ * General Table Formatting
+ */
+table.infotable {
+  display: inline-block;
+  padding: 0px;
+  border-collapse: collapse;
+  border: 0px;
+  margin: 5px auto;
+}
+
+table.infotable tr {
+  height: 30px;
+  border: 0px solid #E0E0E0;
+  border-bottom-width: 1px;
+}
+
+table.infotable a:link, table.infotable a:visited {
+  color: #356797;
+  text-decoration: none;
+  outline: 0;
+}
+
+table.infotable a:hover, table.infotable a:active {
+  color: #98CD6D;
+  text-decoration: underline;
+  outline: 0;
+}
+
+
+/*
+ * Header
+ */
+div#logo-header {
+  top: 0px;
+  width: 100%;
+  text-align: center;
+  padding: 5px 0px 0px;
+  background-color: #313131;
+  color: #FAFAFA;
+  border: 0px solid #505050;
+  border-bottom-width:5px;
+  margin: 0px;
+}
+
+img#monero-logo {
+  height: 40px;
+  vertical-align: middle;
+  padding:4px;
+}
+
+/*
+ * Footer
+ */
+#footer {
+  margin: 10px 0px 0px;
+  width:100%;
+  background-color: #313131;
+  color: #FAFAFA;
+  border: 0px solid #505050;
+  border-top-width:5px;
+  padding: 18px 0px;
+  text-align: center;
+  font-size: 7pt;
+}
+
+/*
+ * Assorted Images
+ */
+img.add-sub {
+  border: 1px solid #888888;
+  height: 12px;
+  width: 12px;
+  border-radius: 2px;
+  display: inline-block;
+  cursor:pointer;
+}
+img.add-sub:hover, img.add-sub:active { border-color: #000000; }
+
+img.addition { content:url("/data/img/ic_add_grey600_48dp.png"); }
+img.addition:hover, img.addition:active { content:url("/data/img/ic_add_black_48dp.png"); }
+
+img.subtraction { content:url("/data/img/ic_remove_grey600_48dp.png"); }
+img.subtraction:hover, img.subtraction:active { content:url("/data/img/ic_remove_black_48dp.png"); }

@@ -1,0 +1,10 @@
+build
+extras
+github
+.gitignore
+.git
+.DS_Store
+*.sh
+*.zip
+*.txt
+*.md
