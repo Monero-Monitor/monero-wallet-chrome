@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
   
-  contactsDB.open(function () { console.log('Contacts DB Open.'); });
+  contactsDB.open(function () { console.log('Contacts DB initialized.'); });
   
   startButtonListeners();
   
