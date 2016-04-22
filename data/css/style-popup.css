@@ -455,7 +455,7 @@ div#receive-qr-message {
 }
 
 div#receive-toggle-settings {
-  width: 350px;
+  width: 370px;
   margin: 5px auto;
   border: 1px solid #E9E9E9;
   padding: 10px;
@@ -465,7 +465,7 @@ div#receive-toggle-settings {
 
 div.receive-setting { width: 250px; margin: 5px auto; display: inline-block; text-align: left; }
 
-div.receive-toggle { width: 100px; margin: 5px auto; display: inline-block; text-align: left; }
+div.receive-toggle { width: 120px; margin: 5px auto; display: inline-block; text-align: right; }
 
 div.receive-title { width: 110px; display: inline-block; text-align: left; font-weight: bold; }
 
