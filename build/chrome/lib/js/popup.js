@@ -27,12 +27,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
   
+  contactsDB.open(function () { console.log('Contacts DB Open.'); });
+  
   startButtonListeners();
   
-  document.getElementById('send-button').addEventListener('click', sendMonero);
+  document.getElementById('send-button').addEventListener('click', confirmSend);
   
   document.getElementById('send-contact-0').addEventListener('click', function () {
     chooseSendContacts('send-dest-0');
+  });
+  
+  document.getElementById('save-contact-0').addEventListener('click', function () {
+    chooseSaveContacts('send-dest-0');
   });
   
   document.getElementById('random-pay-id').addEventListener('click', function () {
@@ -48,6 +54,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     document.getElementById('receive-pay-id').value = random_pay_id;
+  });
+  
+  // Handle new contact form submissions.
+  document.getElementById('save-contact-button').addEventListener('click', function () {
+    document.getElementById('save-contact-button').disabled = true;
+    storeNewContact();
   });
   
   removeBadge();
@@ -290,6 +302,7 @@ function sendMonero () {
   
   transferSplit(wallet_info.port, dests, pay_id, fee, mixin, unlock_time, get_tx_key, new_algo,
     function (resp) {
+      console.log(resp);
       if (resp.hasOwnProperty("result")) {
         // Send successful:
         var tx_hash_list = resp.result.tx_hash_list;
@@ -364,4 +377,117 @@ function chooseSendContacts(addr_form_id) {
     
     });
   });
+}
+
+// Update the list of contacts.
+function chooseSaveContacts(addr_form_id) {
+  document.getElementById('save-contact-dialog').style.display = 'block';
+  document.getElementById('save-contact-addr').value = document.getElementById(addr_form_id).value;
+  document.getElementById('save-contact-button').disabled = false;
+}
+
+function storeNewContact () {
+  var contactName = document.getElementById('save-contact-name');
+  var contactAddr = document.getElementById('save-contact-addr');
+  var contactInfo = document.getElementById('save-contact-info');
+  
+  // Get the contact.
+  var name = contactName.value;
+  var xmr_addr = contactAddr.value;
+  var info = contactInfo.value;
+    
+  // Check to make sure the name and xmr_addr are not blank (or just spaces).
+  if (name.replace(/ /g,'') != '' && xmr_addr.replace(/ /g,'') != '') {
+    // Create the contact.
+    contactsDB.createContact(name, xmr_addr, info, function(contact) {
+      var status = document.getElementById('save-success');
+      status.innerHTML = 'Contact saved successfully.';
+      status.style.display = 'block';
+      setTimeout(function() {
+        status.style.display = 'none';
+      }, 5000);
+    });
+  }
+  
+  // Reset the input fields.
+  contactName.value = '';
+  contactAddr.value = '';
+  contactInfo.value = '';
+  
+  document.getElementById('save-contact-dialog').style.display = 'none';
+}
+
+function confirmSend () {
+
+  document.getElementById('send-confirm-popup').style.display = 'block';
+  document.querySelector('#verify-send-checkbox').checked = false;
+  document.getElementById("send-confirm-yes").disabled = true;
+  
+  var addresses = document.getElementsByClassName('send-input-dest');
+  var amounts = document.getElementsByClassName('send-input-amount');
+  var pay_id = document.getElementById('send-pay-id').value;
+  var mixin = document.getElementById('send-mixin').value;
+  
+  document.getElementById('send-confirm-payid').innerHTML = 'Payment ID: ' + pay_id;
+  document.getElementById('send-confirm-mixin').innerHTML = 'Mixin: ' + mixin;
+  
+  // Add all destinations to list:
+  var ul = document.getElementById('send-confirm-list');
+  ul.innerHTML = '';
+  for (var i = 0; i < addresses.length; i++) {
+    var address = addresses[i].value;
+    var amount = amounts[i].value;
+    
+    var li = document.createElement('li');
+    li.id = 'send-confirm-' + i;
+    
+    // Add address to confirm list item:
+    var addr_head = document.createElement('h3');
+    addr_head.className = 'send-confirm-header';
+    addr_head.innerHTML = 'Address:';
+    li.appendChild(addr_head);
+    
+    var addr = document.createElement('div');
+    addr.className = 'send-confirm-field';
+    addr.innerHTML = address.substring(0,48) + ' ' + address.substring(48,address.length);
+    li.appendChild(addr);
+    
+    // Add amount to confirm list item:
+    var amnt_head = document.createElement('h3');
+    amnt_head.className = 'send-confirm-header';
+    amnt_head.innerHTML = 'Amount:';
+    li.appendChild(amnt_head);
+    
+    var amnt = document.createElement('div');
+    amnt.className = 'send-confirm-field';
+    amnt.innerHTML = amount + ' XMR';
+    li.appendChild(amnt);
+    
+    if (i%2 == 0) {
+      li.style.background = '#F0F0F0';
+    }
+    
+    // Add completed item to list:
+    ul.appendChild(li);
+  }
+  
+  document.querySelector('#verify-send-checkbox').addEventListener('change', function () {
+    if (document.querySelector('#verify-send-checkbox').checked) {
+      document.getElementById("send-confirm-yes").disabled = false;
+    } else {
+      document.getElementById("send-confirm-yes").disabled = true;
+    }
+  });
+  
+  document.getElementById('send-confirm-yes').onclick = function () {
+    document.getElementById("send-confirm-yes").disabled = true;
+    document.querySelector('#verify-send-checkbox').checked = false;
+    console.log('click');
+    sendMonero();
+    document.getElementById('send-confirm-popup').style.display = 'block';
+  };
+  document.getElementById('send-confirm-no').onclick = function () {
+    document.getElementById('send-confirm-popup').style.display = 'none';
+  };
+  
 }

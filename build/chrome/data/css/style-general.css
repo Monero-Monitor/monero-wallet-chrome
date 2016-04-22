@@ -52,6 +52,11 @@ button:hover, button:active {
   font-weight: bold;
 }
 
+button:disabled {
+  border-color: #AAAAAA;
+  color: #AAAAAA;
+}
+
 div.errormsg {
   border: 1px solid #DD3333;
   border-radius: 5px;

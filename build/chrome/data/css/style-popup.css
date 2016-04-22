@@ -211,6 +211,7 @@ span#wallet-status-offline { color: #DD3333; display: none; }
  */
 div#send-tab { display: none; position: relative; }
 
+/* Send contacts popup */
 div#send-contact-list {
   display: none;
   position: absolute;
@@ -221,9 +222,16 @@ div#send-contact-list {
   z-index: 2001;
   background: #FAFAFA;
   border: 1px solid #E0E0E0;
+  box-shadow: 0px 0px 50px #888888;
 }
 
-div#cancel-send-contact { margin: -5px; display: block; float: right; z-index: 2002; }
+div#cancel-send-contact {
+  margin: -5px;
+  display: block;
+  float: right;
+  z-index: 2002;
+}
+
 img#cancel-contact { background-color: #FAFAFA; }
 
 h3#pick-contact-list {
@@ -257,6 +265,107 @@ ul#send-contacts li:hover {
   background: #FFFFFF;
 }
 
+/* Save new contact */
+div#save-contact-dialog {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  width: auto;
+  padding: 10px;
+  z-index: 2001;
+  background: #FAFAFA;
+  border: 1px solid #E0E0E0;
+  box-shadow: 0px 0px 50px #888888;
+  text-align: center; 
+}
+
+div#cancel-save-contact {
+  margin: -5px;
+  display: block;
+  float: right;
+  z-index: 2002;
+}
+
+img#cancel-save-button { background-color: #FAFAFA; }
+
+h3#save-contact-header {
+  width: 100%;
+  border: 0;
+  margin: 0;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+#save-contact-name { width: 90%; margin: 2px 0 0; border: 1px solid #E0E0E0; }
+#save-contact-addr { width: 90%; margin: 2px 0 0; border: 1px solid #E0E0E0; }
+#save-contact-info { width: 90%; margin: 2px 0 5px; padding: 1px; border: 1px solid #E0E0E0; resize: vertical; }
+
+
+
+/* Send confirm popup */
+div#send-confirm-popup {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  width: auto;
+  padding: 10px;
+  z-index: 2001;
+  background: #FAFAFA;
+  border: 1px solid #E0E0E0;
+  display: none;
+  font-size: 10pt;
+  box-shadow: 0px 0px 50px #888888;
+  overflow-y:auto
+}
+
+ul#send-confirm-list {
+  list-style: none;
+  width: 100%;
+  margin: 0px auto;
+  padding: 0;
+}
+
+ul#send-confirm-list li {
+  border: 0px solid #E9E9E9;
+  border-bottom-width: 1px;
+  margin: 0px;
+  padding: 10px;
+  width: auto;
+  background: #FAFAFA;
+  cursor: pointer;
+}
+
+ul#send-confirm-list li h3 {
+  font-size: 12pt;
+  margin: 2px 0;
+  padding: 0;
+}
+
+.send-confirm-header {
+  width: 100%;
+  display: inline-block;
+  text-align: left;
+  color: #313131;
+}
+.send-confirm-field {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  color: #505050;
+}
+
+form#send-confirm-verify { width: 100%; text-align: center; }
+
+div#send-confirm-popup button {
+  display: inline-block;
+  margin: 5px;
+}
+
+/* Send Tab fields */
 div#send-balance-info {
   border: 0px solid #E9E9E9;
   border-width: 1px 0px;
@@ -306,6 +415,17 @@ img.send-contact-icon {
 }
 img.send-contact-icon:hover {
   content:url("/data/img/ic_contacts_black_48dp.png");
+}
+
+img.save-contact-icon {
+  height: 16px;
+  width: 16px;
+  content:url("/data/img/ic_save_grey600_48dp.png");
+  vertical-align: middle;
+  cursor:pointer;
+}
+img.save-contact-icon:hover {
+  content:url("/data/img/ic_save_black_48dp.png");
 }
 
 div#send-pm-dests { width: 500px; margin: 5px auto; display: inline-block; text-align:left; }
