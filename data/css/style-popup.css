@@ -8,9 +8,15 @@ div#nav-menu { width: 450px; height: 30px; display: inline-text; background-colo
 
 div#menuButton { width: 30px; height: 30px; margin: 0; padding: 0; display: block; float: left}
 
-img#menu-img { height: 20px; margin: 3px; cursor:pointer; }
+img#menu-img {
+  height: 20px;
+  margin: 3px;
+  margin-top: 4px;
+  cursor:pointer;
+  content:url("/data/img/ic_menu_white_48dp.png");
+}
 
-img#menu-img:hover { content:url("/data/img/ic_menu_white_48dp.png"); }
+#menu-img:hover { content:url("/data/img/ic_menu_darkgrey_48dp.png"); }
 
 ul#menubar {
   width: 119px;
@@ -403,7 +409,7 @@ div#send-title-dest { width: 350px; display: inline-block; }
 div#send-title-amount { width: 150px; display: inline-block; }
 div.send-dest-field { width: 350px; margin: 1px auto; display: inline-block; text-align: left; }
 div.send-amount-field { width: 150px; margin: 1px auto; display: inline-block; text-align: left; }
-.send-input-dest { width: 310px; }
+.send-input-dest { width: 305px; }
 .send-input-amount { width: 140px; }
 
 img.send-contact-icon {

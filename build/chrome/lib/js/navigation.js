@@ -89,6 +89,13 @@ function startButtonListeners() {
   document.getElementById('receiveButton').addEventListener('click', openReceive);
   document.getElementById('transactionsButton').addEventListener('click', openTransactions);
   
+  document.getElementById('menu-img').addEventListener('mouseenter', function () {
+    document.getElementById('menuButton').style.background = '#FAFAFA';
+  });
+  document.getElementById('menu-img').addEventListener('mouseleave', function () {
+    document.getElementById('menuButton').style.background = '#303030';
+  });
+  
   // Add event listeners to menubar links:
   document.getElementById('keysButton').addEventListener('click', openKeys);
   document.getElementById('contactsButton').addEventListener('click', openContacts);
