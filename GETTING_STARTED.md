@@ -1,30 +1,52 @@
-# Table of Contents
+## Table of Contents
 
 1. [Getting Started with Simplewallet](#getting-started-with-simplewallet)
-2. [Opening simplewallet for the first time](#opening-simplewallet-for-the-first-time)
-3. [Running Simplewallet in JSON RPC mode](#running-simplewallet-in-json-rpc-mode)
-4. [Running simplewallet headless in JSON RPC mode](#running-simplewallet-headless-in-json-rpc-mode)
-5. [Automating all the things](#automating-all-the-things)
-
+2. [Use our pre-configured simplewallet setup](#use-our-pre-configured-simplewallet-setup)
+3. [Configure Simplewallet Yourself](#configure-simplewallet-yourself)
+   1. [Opening simplewallet for the first time](#opening-simplewallet-for-the-first-time)
+   2. [Running Simplewallet in JSON RPC mode](#running-simplewallet-in-json-rpc-mode)
+   3. [Running simplewallet headless in JSON RPC mode](#running-simplewallet-headless-in-json-rpc-mode)
+   4. [Automating all the things](#automating-all-the-things)
 
 # Getting Started with Simplewallet
 
-## Downloading simplewallet
+Thanks for choosing Monero Wallet for Chrome! To use the Monero Wallet for Chrome extension,
+you'll need to install and set up Monero's simplewallet.
 
-To get simplewallet, you can build from source on Github, or download the latest release
-version for your system. Official releases package simplewallet with other utilities, including
-the full node monero daemon, bitmonerod.
+The basic flow is as follows:
 
-Once simplewallet is installed, you will want to generate a new wallet.
+1. Download the official releases for your system from [getmonero.org](https://getmonero.org/downloads/).
+2. Unzip and save the downloaded files in a place you will remember.
+3. Set up your simplewallet on RPC mode.
 
-## Installing simplewallet
-
-Download the official releases for your system from [getmonero.org](https://getmonero.org/downloads/).
-
-Unzip and save the downloaded files in a place you will remember.
+To set up your wallet, you can use our [pre-configured setup scripts](#use-our-pre-configured-simplewallet-setup)
+or follow the [instructions below to make your own](#configure-simplewallet-yourself).
 
 
-# Opening simplewallet for the first time
+# Use our pre-configured simplewallet setup
+
+If you want to skip the hassle of configuring your new simplewallet in RPC mode, you can save
+time and trouble by downloading the script below based on your computer's Operating System.
+
+* [Windows](#) - Coming Soon
+* [Linux and OS X](#) - Coming Soon
+
+Once downloaded, copy the script to the location you installed simplewallet.
+
+On **Windows**, you can simply double click the script and it will run. Feel free to make a
+shortcut to it on your desktop or elsewhere.
+
+On **Linux** or **OS X**, open a terminal and navigate to where you saved the script. Then
+run `./run_simplewallet.sh` and follow the instructions.
+
+
+# Configure simplewallet yourself
+
+This guide will walk through every step needed to setup simplewallet in RPC mode yourself.
+It is intended for users that do not want to use our pre-configured scripts or those that
+want to learn how to write their own script.
+
+## Opening simplewallet for the first time
 
 Getting started is pretty much as simple as typing "simplewallet" - no wonder it's called that!
 
@@ -68,7 +90,7 @@ Getting started is pretty much as simple as typing "simplewallet" - no wonder it
    you're ready for the last step!
 
 
-# Running Simplewallet in JSON RPC mode
+## Running Simplewallet in JSON RPC mode
 
 To open your wallet in Linux/OS X, you'll use the command:
 
@@ -84,19 +106,20 @@ If you want to connect to a remote node, you add the `--daemon-address` argument
     ./simplewallet --wallet-file ChromeWallet --password xxxx --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082 --daemon-address node.moneroclub.com:8880
 
 
-# Running simplewallet headless in JSON RPC mode 
+## Running simplewallet headless in JSON RPC mode 
 
 If you are running the wallet in RPC mode, you probably don't want to have to leave your
 command line open all the time. Depending on your system, one of these solutions might help
 you keep your wallet offscreen.
 
-## Windows:
+### Windows:
 
-Switch to Linux. J/K, to be completed soon...
+Switch to Linux. J/K... For now, we recommend minimizing the command prompt that simplewallet
+opens in. We are evaluating more robust options.
 
-## OS X and Linux:
+### OS X and Linux:
 
-I recommend using `screen` to be able to run your wallet in the background.
+We recommend using `screen` to be able to run your wallet in the background.
 
     screen ./simplewallet --wallet-file ChromeWallet --password xxxx --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082
     
@@ -105,12 +128,12 @@ When you first do this, it will look like a normal command line window. However,
 in a terminal.
 
 
-# Automating all the things
+## Automating all the things
 
 Now that you've walked through the Simplewallet 101 tutorial, I'll leave you with this: how
 to write a script that does all this stuff for you so that you don't have to remember it every time.
 
-## OS X and Linux
+### OS X and Linux
 
 I use shell scripts to simplify things. In the terminal, write `nano run_wallet_chrome.sh`.
 The bit after `nano` will be the name of your script... feel free to use something else.
@@ -140,7 +163,7 @@ execute in OS X, right click on it and select "Open With" > "Other". Find "Utili
 Select "Always Open With" and click "Open". In Linux, try these instructions:
 [askubuntu.com](http://askubuntu.com/questions/465531/how-to-make-a-shell-file-execute-by-double-click).
 
-## Windows
+### Windows
 
 On Windows, we will write a "batfile" to do all of this for us.
 
