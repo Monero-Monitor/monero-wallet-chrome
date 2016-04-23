@@ -76,7 +76,7 @@ if exist %FILE% (
     echo ----------
     echo.
     
-    simplewallet --generate-new-wallet %FILE% --password $NEWPASS
+    simplewallet --generate-new-wallet %FILE% --password %NEWPASS%
     
     echo.
     echo ----------
