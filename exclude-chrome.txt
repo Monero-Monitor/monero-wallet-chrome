@@ -1,6 +1,7 @@
 build
 extras
 github
+scripts
 .gitignore
 .git
 .DS_Store
