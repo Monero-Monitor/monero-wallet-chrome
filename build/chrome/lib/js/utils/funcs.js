@@ -55,7 +55,11 @@ function genRandomHexPayID (type) {
   }
   var key = crypto.getRandomValues(aaa);
   var pay_id = '';
-  for (var i=0; i<key.length; i++) pay_id += key[i].toString(16);
+  for (var i=0; i<key.length; i++) {
+    var hexString = key[i].toString(16);
+    while (hexString.length < 8) { hexString = '0' + hexString; }
+    pay_id += hexString;
+  }
   return pay_id;
 }
 
