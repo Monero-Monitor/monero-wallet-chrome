@@ -88,8 +88,16 @@ div.successmsg {
 .left { width: 100%; text-align: left; }
 .right { width: 100%; text-align: right; }
 
+.mono { font-family: monospace; }
+.bold { font-weight: bold; }
+
 /* General color handling */
 .lightgray { color: #505050; }
+.darkgray { color: #313131; }
+.orange { color: #FC6622; }
+.black { color: #000000; }
+.offwhite { color: #FAFAFA; }
+.white { color: #FFFFFF; }
 
 /*
  * Heading Settings

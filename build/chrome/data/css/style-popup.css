@@ -257,7 +257,7 @@ ul#send-contacts {
   padding: 0;
 }
 ul#send-contacts li {
-  border: 0px solid #E9E9E9;
+  border: 0px solid #E0E0E0;
   border-bottom-width: 1px;
   margin: 0px;
   padding: 10px 50px;
@@ -313,10 +313,10 @@ h3#save-contact-header {
 /* Send confirm popup */
 div#send-confirm-popup {
   position: absolute;
-  top: 10px;
+  top: -30px;
   left: 10px;
   right: 10px;
-  bottom: 10px;
+  bottom: 0px;
   width: auto;
   padding: 10px;
   z-index: 2001;
@@ -331,40 +331,43 @@ div#send-confirm-popup {
 ul#send-confirm-list {
   list-style: none;
   width: 100%;
-  margin: 0px auto;
+  margin: 5px auto;
   padding: 0;
+  border: 0px solid #E0E0E0;
+  border-top-width: 1px;
 }
 
 ul#send-confirm-list li {
-  border: 0px solid #E9E9E9;
+  border: 0px solid #E0E0E0;
   border-bottom-width: 1px;
   margin: 0px;
   padding: 10px;
+  padding-bottom: 5px;
   width: auto;
   background: #FAFAFA;
   cursor: pointer;
-}
-
-ul#send-confirm-list li h3 {
-  font-size: 12pt;
-  margin: 2px 0;
-  padding: 0;
+  text-align: center;
 }
 
 .send-confirm-header {
-  width: 100%;
+  width: 70px;
+  margin: 0 5px;
   display: inline-block;
   text-align: left;
   color: #313131;
+  font-weight: bold;
+  vertical-align: top;
 }
 .send-confirm-field {
-  width: 100%;
+  width: 400px;
+  margin: 0 0 5px;
   display: inline-block;
-  text-align: center;
+  text-align: left;
   color: #505050;
+  font-family: monospace;
 }
 
-form#send-confirm-verify { width: 100%; text-align: center; }
+form#send-confirm-verify { clear: all; width: 100%; text-align: center; }
 
 div#send-confirm-popup button {
   display: inline-block;
@@ -373,7 +376,7 @@ div#send-confirm-popup button {
 
 /* Send Tab fields */
 div#send-balance-info {
-  border: 0px solid #E9E9E9;
+  border: 0px solid #E0E0E0;
   border-width: 1px 0px;
   margin: 5px auto;
   text-align: center;
@@ -463,7 +466,7 @@ div#receive-qr-message {
 div#receive-toggle-settings {
   width: 370px;
   margin: 5px auto;
-  border: 1px solid #E9E9E9;
+  border: 1px solid #E0E0E0;
   padding: 10px;
   background: #FFFFFF;
   display: inline-block;

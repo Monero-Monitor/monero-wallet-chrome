@@ -16,7 +16,7 @@ div#new-contacts-div {
   padding: 0px 20px 10px;
   margin: 10px 35px 5px;
   width: auto;
-  border: 1px solid #E9E9E9;
+  border: 1px solid #E0E0E0;
   background: #FFFFFF;
   text-align: left;
   display: none;
@@ -39,7 +39,7 @@ ul#contact-list {
   list-style: none;
   width: 100%;
   margin: 0px auto 5px;
-  border: 0px solid #E9E9E9;
+  border: 0px solid #E0E0E0;
   border-top-width: 1px;
   padding: 0;
 }
@@ -47,7 +47,7 @@ ul#contact-list {
 ul#contact-list li {
   font-size: 11pt;
   padding: 10px;
-  border: 0px solid #E9E9E9;
+  border: 0px solid #E0E0E0;
   border-bottom-width: 1px;
 }
 
@@ -62,7 +62,7 @@ div.contact-name {
 div.contact-xmr-addr {
   margin: 10px 0;
   width: auto;
-  border: 1px solid #E9E9E9;
+  border: 1px solid #E0E0E0;
   background: #FFFFFF;
   padding: 5px;
   overflow: hidden;
