@@ -1,13 +1,3 @@
-## Table of Contents
-
-1. [Getting Started with Simplewallet](#getting-started-with-simplewallet)
-2. [Use our pre-configured simplewallet setup](#use-our-pre-configured-simplewallet-setup)
-3. [Configure Simplewallet Yourself](#configure-simplewallet-yourself)
-   1. [Opening simplewallet for the first time](#opening-simplewallet-for-the-first-time)
-   2. [Running Simplewallet in JSON RPC mode](#running-simplewallet-in-json-rpc-mode)
-   3. [Running simplewallet headless in JSON RPC mode](#running-simplewallet-headless-in-json-rpc-mode)
-   4. [Automating all the things](#automating-all-the-things)
-
 # Getting Started with Simplewallet
 
 Thanks for choosing Monero Wallet for Chrome! To use the Monero Wallet for Chrome extension,
@@ -21,6 +11,16 @@ The basic flow is as follows:
 
 To set up your wallet, you can use our [pre-configured setup scripts](#use-our-pre-configured-simplewallet-setup)
 or follow the [instructions below to make your own](#configure-simplewallet-yourself).
+
+## Table of Contents
+
+1. [Getting Started with Simplewallet](#getting-started-with-simplewallet)
+2. [Use our pre-configured simplewallet setup](#use-our-pre-configured-simplewallet-setup)
+3. [Configure Simplewallet Yourself](#configure-simplewallet-yourself)
+   1. [Opening simplewallet for the first time](#opening-simplewallet-for-the-first-time)
+   2. [Running Simplewallet in JSON RPC mode](#running-simplewallet-in-json-rpc-mode)
+   3. [Running simplewallet headless in JSON RPC mode](#running-simplewallet-headless-in-json-rpc-mode)
+   4. [Automating all the things](#automating-all-the-things)
 
 
 # Use our pre-configured simplewallet setup
