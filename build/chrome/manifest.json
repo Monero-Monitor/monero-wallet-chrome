@@ -28,7 +28,7 @@
       "lib/js/deps/json-bigint/json-bigint.js",
       "lib/js/utils/funcs.js",
       "lib/js/utils/wallet-rpc.js",
-      "lib/js/background/send.js",
+      "lib/js/background/uri-relay.js",
       "lib/js/background/wallet.js"
     ]
   },
