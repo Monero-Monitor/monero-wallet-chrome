@@ -138,7 +138,11 @@ table.infotable tr {
   height: 30px;
   border: 0px solid #E0E0E0;
   border-bottom-width: 1px;
+  padding: 0;
+  margin: 0;
 }
+
+table.infotable th, table.infotable td { border: 0; padding: 0; margin: 0; }
 
 table.infotable a:link, table.infotable a:visited {
   color: #356797;
