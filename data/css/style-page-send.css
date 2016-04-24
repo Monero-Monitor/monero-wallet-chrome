@@ -44,5 +44,72 @@ div.send-field-popup { width: 590px; display: inline-block; text-align: left; }
 #send-pay-id-popup  { width: 585px; }
 #send-mixin-popup { width: 100px; }
 
-div#send-error-popup, div#send-success-popup { width: 500px; margin: 5px auto; display: none; }
+div#send-error-popup, div#send-success-popup { width: 650px; margin: 5px auto; display: none; }
 div#send-txhashlist-popup { width: 100%; }
+
+
+/* Send confirm popup */
+div#send-confirm-popup {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 600px;
+  height: 300px;
+  margin-left: -300px;
+  margin-top: -150px;
+  padding: 10px;
+  z-index: 2001;
+  background: #FAFAFA;
+  border: 1px solid #E0E0E0;
+  display: none;
+  font-size: 10pt;
+  box-shadow: 0px 0px 50px #888888;
+  overflow-y:auto;
+  text-align: center;
+}
+
+ul#send-confirm-list {
+  list-style: none;
+  width: 100%;
+  margin: 5px auto;
+  padding: 0;
+  border: 0px solid #E0E0E0;
+  border-top-width: 1px;
+}
+
+ul#send-confirm-list li {
+  border: 0px solid #E0E0E0;
+  border-bottom-width: 1px;
+  margin: 0px;
+  padding: 10px;
+  padding-bottom: 5px;
+  width: auto;
+  background: #FAFAFA;
+  cursor: pointer;
+  text-align: center;
+}
+
+.send-confirm-header {
+  width: 140px;
+  margin: 0 5px;
+  display: inline-block;
+  text-align: left;
+  color: #313131;
+  font-weight: bold;
+  vertical-align: top;
+}
+.send-confirm-field {
+  width: 400px;
+  margin: 0 0 5px;
+  display: inline-block;
+  text-align: left;
+  color: #505050;
+  font-family: monospace;
+}
+
+form#send-confirm-verify { clear: all; width: 100%; text-align: center; }
+
+div#send-confirm-popup button {
+  display: inline-block;
+  margin: 5px;
+}

@@ -8,6 +8,7 @@
   <script type="text/javascript" src="/lib/js/deps/json-bigint/json-bigint.js"></script>
   <script type="text/javascript" src="/lib/js/utils/funcs.js"></script>
   <script type="text/javascript" src="/lib/js/utils/wallet-rpc.js"></script>
+  <script type="text/javascript" src="/lib/js/utils/outgoingTxsDB.js"></script>
   <script type="text/javascript" src="/lib/js/pages/send.js"></script>
 </head>
 <body id="send-body">
@@ -19,11 +20,20 @@
   <div class="main-area" id="send-popup">
     
     <div id="send-balance-info-popup">
-      <div class="send-info-popup">Balance:</div><div class="send-balance-popup blue" id="send-total-balance-popup"></div>
-      <div class="send-info-popup">Unlocked Balance:</div><div class="send-balance-popup blue" id="send-unlocked-balance-popup"></div>
+      <div class="send-info-popup">Balance:&nbsp;</div><div class="send-balance-popup blue" id="send-total-balance-popup"></div>
+      <div class="send-info-popup">Unlocked Balance:&nbsp;</div><div class="send-balance-popup blue" id="send-unlocked-balance-popup"></div>
     </div>
     
     <div class="errormsg" id="send-status-offline">Simplewallet is offline.</div>
+    
+    <div id="send-confirm-popup">
+      <h3 class="center">Confirm Transaction:</h3>
+      <div class="left"><span class="bold">ID: </span><span class="orange mono small" id="send-confirm-payid"></span></div>
+      <div class="left"><span class="bold">Mixin: </span><span class="orange mono small" id="send-confirm-mixin"></span></div>
+      <ul id="send-confirm-list"></ul>
+      <form id="send-confirm-verify"><input type="checkbox" name="verify-send-checkbox" id="verify-send-checkbox" value="1"> The transaction details are correct.</form>
+      <button type="button" id="send-confirm-yes" disabled>Send</button><button type="button" id="send-confirm-no">Cancel</button>
+    </div>
     
     <h2> Send Monero: </h2>
     

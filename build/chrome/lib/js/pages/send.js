@@ -7,8 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
   // Get wallet info from settings:
   getBalanceAndDisplay();
   
+  outgoingTxsDB.open(function () { console.log('Outgoing Txs DB initialized.'); });
+  
   // Add event listener to send button:
-  document.getElementById('send-button-popup').addEventListener('click', sendMoneroNewTab);
+  document.getElementById('send-button-popup').addEventListener('click', confirmSend);
 });
 
 // Requests Monero URI info that was found by background/send.js and fills send form:
@@ -39,6 +41,89 @@ function getBalanceAndDisplay() {
   });
 }
 
+function confirmSend () {
+
+  document.getElementById('send-confirm-popup').style.display = 'block';
+  document.querySelector('#verify-send-checkbox').checked = false;
+  document.getElementById("send-confirm-yes").disabled = true;
+  
+  var addresses = document.getElementsByClassName('send-input-dest-popup');
+  var amounts = document.getElementsByClassName('send-input-amount-popup');
+  var pay_id = document.getElementById('send-pay-id-popup').value;
+  var mixin = document.getElementById('send-mixin-popup').value;
+  
+  if (pay_id == "" || pay_id == undefined) {
+    document.getElementById('send-confirm-payid').innerHTML = 'none';
+  } else {
+    document.getElementById('send-confirm-payid').innerHTML = pay_id;
+  }
+  
+  if (mixin == "" || mixin == undefined) {
+    document.getElementById('send-confirm-mixin').innerHTML = '3';
+  } else {
+    document.getElementById('send-confirm-mixin').innerHTML = mixin;
+  }
+  
+  // Add all destinations to list:
+  var ul = document.getElementById('send-confirm-list');
+  ul.innerHTML = '';
+  for (var i = 0; i < addresses.length; i++) {
+    var address = addresses[i].value;
+    var amount = amounts[i].value;
+    
+    var li = document.createElement('li');
+    li.id = 'send-confirm-' + i;
+    
+    // Add address to confirm list item:
+    var addr_head = document.createElement('div');
+    addr_head.className = 'send-confirm-header';
+    addr_head.innerHTML = 'Address:';
+    li.appendChild(addr_head);
+    
+    var addr = document.createElement('div');
+    addr.className = 'send-confirm-field';
+    addr.innerHTML = address.substring(0,48) + ' ' + address.substring(48,address.length);
+    li.appendChild(addr);
+    
+    // Add amount to confirm list item:
+    var amnt_head = document.createElement('div');
+    amnt_head.className = 'send-confirm-header';
+    amnt_head.innerHTML = 'Amount:';
+    li.appendChild(amnt_head);
+    
+    var amnt = document.createElement('div');
+    amnt.className = 'send-confirm-field';
+    if (amount != '') amnt.innerHTML = amount + ' XMR';
+    li.appendChild(amnt);
+    
+    if (i%2 == 0) {
+      li.style.background = '#F0F0F0';
+    }
+    
+    // Add completed item to list:
+    ul.appendChild(li);
+  }
+  
+  document.querySelector('#verify-send-checkbox').addEventListener('change', function () {
+    if (document.querySelector('#verify-send-checkbox').checked) {
+      document.getElementById("send-confirm-yes").disabled = false;
+    } else {
+      document.getElementById("send-confirm-yes").disabled = true;
+    }
+  });
+  
+  document.getElementById('send-confirm-yes').onclick = function () {
+    document.getElementById("send-confirm-yes").disabled = true;
+    document.querySelector('#verify-send-checkbox').checked = false;
+    sendMoneroNewTab();
+    document.getElementById('send-confirm-popup').style.display = 'none';
+  };
+  document.getElementById('send-confirm-no').onclick = function () {
+    document.getElementById('send-confirm-popup').style.display = 'none';
+  };
+  
+}
+
 // Send Monero to destination on button click
 function sendMoneroNewTab () {
   var destination = document.getElementById('send-dest-popup-0').value;
@@ -50,7 +135,7 @@ function sendMoneroNewTab () {
   if (mixin.length == 0 || mixin < 3) { mixin = 3; }
   
   var fee = undefined, unlock_time = undefined, get_tx_key = true, new_algo = true;
-  var dests = [{amount: coinsToAtomic(amount), address: destination}];
+  var dests = [{amount: JSONbig.parse(coinsToAtomic(amount)), address: destination}];
   
   transferSplit(walletPort, dests, pay_id, fee, mixin, unlock_time, get_tx_key, new_algo,
     function (resp) {
@@ -58,9 +143,18 @@ function sendMoneroNewTab () {
         // Send successful:
         var tx_hash_list = resp.result.tx_hash_list;
         var status = document.getElementById('send-success-popup');
+        
+        var tx_hashes = [];
         for (var i=0; i < tx_hash_list.length; i++) {
-          document.getElementById('send-txhashlist-popup').innerHTML += tx_hash_list[i] + '<br>';
+          var this_hash = tx_hash_list[i].substring(1,tx_hash_list[i].length-1);
+          tx_hashes.push(this_hash);
+          document.getElementById('send-txhashlist-popup').innerHTML += this_hash + '<br>';
         }
+        
+        outgoingTxsDB.createOutgoingTx(pay_id, dests, tx_hashes, function(contact) {
+          console.log('Outgoing tx successfully stored in database.');
+        });
+        
         status.style.display = 'block';
         setTimeout(function() {
           status.style.display = 'none';
