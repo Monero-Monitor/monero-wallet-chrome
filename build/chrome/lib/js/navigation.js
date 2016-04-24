@@ -42,7 +42,7 @@ function openTransactions() {
   // Switch to Transactions tab:
   closeAll();
   document.getElementById('transactions-tab').style.display = 'block';
-  fillTransactionTable("in-txs-table", "all");
+  fillIncomingTransactionTable("in-txs-table", "all");
 }
 
 function closeAll(){
@@ -154,4 +154,28 @@ function startButtonListeners() {
   });
   
   document.getElementById('receive').addEventListener('click', makeReceiveQR);
+  
+  // Listen for transaction type tab toggle:
+  document.getElementById('incoming-txs').addEventListener('click', function () {
+    document.getElementById('incoming-txs').style.background = '#505050';
+    document.getElementById('incoming-txs').style.color = '#FAFAFA';
+    document.getElementById('outgoing-txs').style.background = '#FAFAFA';
+    document.getElementById('outgoing-txs').style.color = '#505050';
+    
+    document.getElementById('in-txs-table').style.display = 'inline-block';
+    document.getElementById('out-txs-table').style.display = 'none';
+    
+    fillIncomingTransactionTable("in-txs-table", "all");
+  });
+  document.getElementById('outgoing-txs').addEventListener('click', function () {
+    document.getElementById('incoming-txs').style.background = '#FAFAFA';
+    document.getElementById('incoming-txs').style.color = '#505050';
+    document.getElementById('outgoing-txs').style.background = '#505050';
+    document.getElementById('outgoing-txs').style.color = '#FAFAFA';
+    
+    document.getElementById('in-txs-table').style.display = 'none';
+    document.getElementById('out-txs-table').style.display = 'inline-block';
+    
+    fillOutgoingTransactionTable("out-txs-table");
+  });
 }

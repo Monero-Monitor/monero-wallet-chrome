@@ -10,6 +10,7 @@
   <script type="text/javascript" src="/lib/js/utils/funcs.js"></script>
   <script type="text/javascript" src="/lib/js/utils/wallet-rpc.js"></script>
   <script type="text/javascript" src="/lib/js/utils/contactsDB.js"></script>
+  <script type="text/javascript" src="/lib/js/utils/outgoingTxsDB.js"></script>
   <script type="text/javascript" src="/lib/js/popup.js"></script>
   <script type="text/javascript" src="/lib/js/navigation.js"></script>
 </head>
@@ -210,9 +211,14 @@
     <!-- Transactions Tab -->
     <div id="transactions-tab">
     
-      <h3> Incoming Transactions: </h3>
+      <h3> Transactions: </h3>
       
-      <table class="infotable" id="in-txs-table"></table>
+      <div class="transaction-type" id="incoming-txs">Incoming</div><div class="transaction-type" id="outgoing-txs">Outgoing</div>
+      
+      <div id="incoming-table-container">
+        <table class="infotable" id="in-txs-table"></table>
+        <table class="infotable" id="out-txs-table"></table>
+      </div>
       
       <div class="errormsg" id="txs-error"></div>
       

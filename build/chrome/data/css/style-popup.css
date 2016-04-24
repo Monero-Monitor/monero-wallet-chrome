@@ -444,10 +444,11 @@ div#send-pm-dests { width: 500px; margin: 5px auto; display: inline-block; text-
 #send-pay-id { width: 370px; }
 #send-mixin { width: 130px; }
         
-div#send-error { width: 400px; margin: 5px auto; display: none; }
+div#send-error { width: 500px; margin: 5px auto; display: none; }
 
-div#send-success { width: 400px; margin: 5px auto; display: none; }
-
+div#send-success { width: 500px; margin: 5px auto; display: none; }
+#send-success h3 { font-size: 12pt; }
+#send-success #send-txhashlist-popup { font-size: 10pt; }
 
 /*
  * Receive Tab
@@ -536,15 +537,38 @@ div#receive-qr {
  */
 div#transactions-tab { display: none; }
 
-table#in-txs-table {
+div.transaction-type {
+  width: 248px;
+  margin: 5px 0 0;
+  padding: 5px 0;
+  border: 1px solid #505050;
+  text-align: center;
+  font-weight: bold;
+  display: inline-block;
+  cursor: pointer;
+}
+div#incoming-txs { background: #505050; color: #FAFAFA; }
+div#outgoing-txs { background: #FAFAFA; color: #505050; }
+
+div#incoming-table-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  height: 300px;
+  overflow-y: auto;
+}
+
+table#in-txs-table, table#out-txs-table {
   width: 500px;
   font-size: 10pt;
-  display: inline-block;
-  margin: 5px auto;
+  margin: 0 auto 5px;
   text-align: left;
   table-layout: fixed;
   background: #FAFAFA;
 }
+table#in-txs-table { display: inline-block; }
+table#out-txs-table { display: none; }
 
 tr#tx-line-top {
   border: 0px;
@@ -563,5 +587,74 @@ td.tx-amount { width: 140px; text-align: right; }
 td.tx-hash { width: 340px; text-align: left; }
 div.in-tx-hash { width: 327px; margin: 0; padding: 0px; overflow: hidden; display: inline-block; vertical-align: middle; }
 div.in-tx-hash-ell { width: 12px; margin: 0; padding: 0px; text-align: center; display: inline-block; vertical-align: middle; }
+
+/* Outgoing Table */
+
+div.outgoing-pay-id { width: 340px; }
+div.out-pay-id-link { width: 327px; overflow: hidden; display: inline-block; }
+div.out-title {
+  font-size: 10pt;
+  width: 100%;
+  margin: 5px auto 0;
+  display: inline-block;
+  border: 0 solid #E0E0E0;
+  border-bottom-width: 1px;
+}
+
+div.outgoing-tx-toggle-show, div.outgoing-tx-toggle-hide {
+  width: 100%;
+  margin: 0;
+  padding: 3px 0;
+  color: #356797;
+  cursor: pointer;
+}
+
+.outgoing-tx-toggle-show:hover, .outgoing-tx-toggle-show:active, 
+.outgoing-tx-toggle-hide:hover, .outgoing-tx-toggle-hide:active {
+  color: #98CD6D;
+  text-decoration: underline;
+}
+
+div.outgoing-tx-toggle-show { display: inline-block; }
+div.outgoing-tx-toggle-hide { display: none; }
+
+div.outgoing-tx-details {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+div.outgoing-dest {
+  width: auto;
+  margin: 0;
+  padding: 3px;
+  border: 0 solid #E0E0E0;
+  border-bottom-width: 1px;
+  background: #FAFAFA;
+}
+div.out-dest-type {
+  width: 70px;
+  height: 20px;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  display: inline-block;
+  vertical-align: top;
+}
+div.out-dest-field {
+  width: 250px;
+  height: 20px;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+div.outgoing-hashes { width: 100%; margin: 5px auto 0; display: inline-block; }
+div.outgoing-hash-link { width: 327px; overflow: hidden; display: inline-block; }
 
 div#txs-error { width: 400px; margin: 5px auto; display: none; }
