@@ -12,6 +12,7 @@
 #
 
 clear
+cd ~/Monero-Wallet-Chrome
 FILE="ChromeWallet.bin"
 
 echo "\n===================================================================================="
@@ -35,11 +36,11 @@ if [ -e "$FILE" ]; then
     
     echo "\nReturning wallet address:"
     if curl --fail -X POST http://127.0.0.1:18082/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getaddress"}' -H 'Content-Type: application/json'; then
-        echo "\n\nSimplewallet is now running in RPC mode. To shutdown simplewallet, choose 'Stop Wallet' in the extension's menu.\n"
-        echo "Thank you for using Monero Wallet for Chrome! You may now close this window.\n"
+        echo "\n\n  Simplewallet is now running in RPC mode. To shutdown simplewallet, choose 'Stop Wallet' in the extension's menu.\n"
+        read -p "  Thank you for using Monero Wallet for Chrome! Press 'enter' to close the application."
     else
-        echo "\nPlease check if your extension shows that simplewallet online. If not,"
-        echo "please check your password and try again.\n"
+        echo "\n  Please check if your extension shows that simplewallet online. If not,"
+        read -p "  please check your password and try again. Press 'enter' to close the application."
     fi
 else
     # The first time this script is run, open the command line wallet.
@@ -62,6 +63,8 @@ else
     
     if [ -e "$FILE" ]; then
         echo "  Everything looks good. You can now start your wallet in RPC mode at any time by re-running this script.\n"
-        echo "  Closing Monero Simplewallet Launcher...\n\n"
+        read -p "  Press 'enter' to close Monero Simplewallet Launcher.\n\n"
+    else
+        read -p "  There seems to have been an issue creating your wallet. Press 'enter' to close this dialog."
     fi
 fi
