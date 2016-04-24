@@ -10,37 +10,47 @@
 </head>
 <body id="contacts-body">
 
-  <div id="logo-header">
-    <h1><img id="monero-logo" src="/data/img/logo686white.png"> Monero Wallet</h1>
-  </div>
-  
-  <div class="main-area">
+  <div class="page-container">
     
+    <div id="logo-header">
+      <h1><img id="monero-logo" src="/data/img/logo686white.png"> Monero Wallet</h1>
+    </div>
     
-    <div id="contacts-tab">
-      <div id="add-contact-button">
-        <span><img class="add-sub addition" id="add-contact" /> Add Contact</span>
-      </div>
+    <div class="main-area">
       
-      <div id="new-contacts-div">
-        <div id="sub-contact-button">
-          <span><img class="add-sub subtraction" id="subtract-contact" /> Cancel</span>
+      <div id="contacts-tab">
+      
+        <div id="add-contact-button">
+          <span><img class="add-sub addition" id="add-contact" /> Add Contact</span>
         </div>
         
-        <form id="new-contacts-form">
-          <h3>Add a contact:</h3>
-          <input type="text" name="new-contact" id="new-contact-name" placeholder="Contact Name" required>
-          <input type="text" name="new-contact" id="new-contact-addr" placeholder="XMR Address" required>
-          <textarea rows="4" id="new-contact-info" placeholder="Extra Information"></textarea>
-          <!-- <input type="text" name="new-contact" id="new-contact-info" placeholder="Extra Information" > -->
-          <button type='button' id="new-contact-button">Add</button>
-        </form>
+        <div id="new-contacts-div">
+          <div id="sub-contact-button">
+            <span><img class="add-sub subtraction" id="subtract-contact" /> Cancel</span>
+          </div>
+          
+          <form id="new-contacts-form">
+            <h3>Add a contact:</h3>
+            <input type="text" name="new-contact" id="new-contact-name" placeholder="Contact Name" required>
+            <input type="text" name="new-contact" id="new-contact-addr" placeholder="XMR Address" required>
+            <textarea rows="4" id="new-contact-info" placeholder="Extra Information"></textarea>
+            <button type='button' id="new-contact-button">Add</button>
+          </form>
+        </div>
+        
+        <h3 id="contacts-header">Contact List:</h3>
+        <ul id="contact-list"></ul>
+        
       </div>
-      
-      <h3 id="contacts-header">Contact List:</h3>
-      <ul id="contact-list"></ul>
       
     </div>
     
+    <div class="page-footer">
+      Monero Wallet for Google Chrome&#8482; is distributed without warranty under the <a href="/LICENSE" target="_blank">MIT License</a>.<br>
+      Google Chrome is a trademark of Google Inc. Use of this trademark is subject to Google Permissions.
+    </div>
+    
+  </div>
+  
 </body>
 </html>

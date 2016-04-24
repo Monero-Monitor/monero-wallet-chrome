@@ -4,7 +4,7 @@
  */
 
 /* Style Send Page Tab */
-html#send-html, body#send-body { width: 100%; font-size: 14pt; }
+html#send-html, body#send-body { width: 100%; font-size: 14pt; height: 100%; }
 div#send-popup { width: 720px; margin: 5px auto; }
 
 div#send-status-offline { width: 100%; margin: 0; padding: 10px 0; display: none; }

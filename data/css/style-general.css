@@ -19,6 +19,8 @@ body {
   font-size: 12pt;
 }
 
+div.page-container { min-height: 100%; }
+
 .main-area {
   width: 100%;
 }
@@ -184,6 +186,20 @@ img#monero-logo {
 #footer {
   margin: 10px 0px 0px;
   width:100%;
+  background-color: #313131;
+  color: #FAFAFA;
+  border: 0px solid #505050;
+  border-top-width:5px;
+  padding: 18px 0px;
+  text-align: center;
+  font-size: 7pt;
+}
+
+.page-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: #313131;
   color: #FAFAFA;
   border: 0px solid #505050;
