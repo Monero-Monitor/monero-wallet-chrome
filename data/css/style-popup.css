@@ -30,6 +30,8 @@ ul#menubar {
   position: absolute;
   left: 0;
   top: 97px;
+  bottom: 0;
+  background: #313131;
   font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
   z-index: 5000;
   cursor:pointer;
