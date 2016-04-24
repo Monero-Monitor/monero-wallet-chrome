@@ -1,24 +1,18 @@
-body { padding: 20px; width: 710px; }
+/* 
+ * Monero Simplewallet Manager Stylesheet
+ * See LICENSE for use.
+ */
+
+body { width: 710px; }
 div { display: inline-block; float: left; padding: 5px 10px; }
 h3 { padding: 0px; margin: 0px auto; }
-h4 { padding: 0px; margin: 10px 0px 0px; }
 p { margin: 5px; }
-
 .center { width: 100%; text-align: center; }
 
-div#view-options { line-height: 20px; margin-bottom: 10px; width: 310px; }
+#simplewallet-port { width: 100px; }
+span#status { color: #98CD6D; line-height: 16px; }
 
-div#mining-monitor { line-height: 20px; margin-bottom: 10px; width: 360px; }
-select#mining-pool { width: 100%; }
-input#mining-address { width: 100%; }
-
-div#status-box { width: 690px; height: 16px; text-align: center; color: #98CD6D; margin-bottom: 5px; }
-span#status { line-height: 16px; }
-
-div#clear-save { width: 690px; text-align: right; border: 0px solid #313131; border-bottom-width: 1px;}
-
-div#about-tab { width: 690px; text-align: justify; margin: 10px 0px;}
+div#about { margin: 10px 0px; border: 0px solid #313131; border-top-width: 1px; }
 
 img.donate-button { height: 50px; content: url("/data/img/donate_grey.png"); }
-
 img.donate-button:hover { height: 50px; content: url("/data/img/donate_white.png"); }

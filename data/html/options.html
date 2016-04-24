@@ -4,43 +4,34 @@
 <head>
   <title>Monero Wallet for Google Chrome&#8482; Options</title>
   <link href="/data/css/style-page-options.css" rel="stylesheet" type="text/css">
-  <style> body: { padding: 10px; } </style>
 </head>
 
 <body>
   
   <div id="simplewallet-config">
-    <h3> Thank you for installing Monero Wallet for Chrome! </h3>
+    <h2> Thank you for installing Monero Wallet for Chrome! </h2>
     
     <p> This page is the configuration page for the extension. Here you will need to set which port the extension can use to talk to simplewallet. You can return to this page in the future from the "Settings" button in the extension menu. </p>
     
     <h3> Getting Started </h3>
     
-    <p> In order to use this extension, simplewallet must be running in RPC mode on the same computer as your Chrome/Chromium browser. For help on setting this up, visit our <a target="_blank" href="https://github.com/Monero-Monitor/monero-wallet-chrome/blob/master/GETTING_STARTED.md">Getting Started</a> guide. </p>
-    
-    <h3> Simplewallet Configuration </h3>
+    <p> In order to use this extension, simplewallet must be running in RPC mode on the same computer as your Chrome or Chromium browser. For help on setting this up, visit our <a target="_blank" href="https://github.com/Monero-Monitor/monero-wallet-chrome/blob/master/GETTING_STARTED.md">Getting Started</a> guide. </p>
     
     <p>  Once simplewallet is configured and open, please specify the port simplewallet is listening on here. </p>
     
     <form>
       <h4>RPC Port:</h4>
-      <p><input type="text" id="simplewallet-port" style="width: 100%;"></p>
-      
+      <p><input type="text" id="simplewallet-port"> <button type="button" id="save">Save</button><button type="button" id="clear">Clear</button> &nbsp;<span id="status"></span></p>
     </form>
   </div>
   
-  <div id="status-box">
-    &nbsp;<span id="status"></span>&nbsp;
-  </div>
-  
-  <div id="clear-save">
-    <button id="clear">Clear</button><button id="save">Save</button>
-  </div>
-  
-  <div id="about-tab">
+  <div id="about">
     <h2>About This Extension</h2>
     <p>
-      Source code for this extension is hosted on <a target="_blank" href="https://github.com/Monero-Monitor/monero-wallet-chrome">Github</a>. Please feel free to fork, submit pull requests or issues, or otherwise contribute in making this extension as useful as possible.
+      Monero Wallet for Google Chrome&#8482; is distributed without warranty under the <a href="/LICENSE" target="_blank">MIT License</a>.
+      Source code for this extension is hosted on <a target="_blank" href="https://github.com/Monero-Monitor/monero-wallet-chrome">Github</a>.
+      Please feel free to fork, submit pull requests or issues, or otherwise contribute in making this extension as useful as possible.
+      Google Chrome is a trademark of Google Inc. Use of this trademark is subject to Google Permissions.
     </p>
     <p> Please consider donating to the developer if you find this tool useful:</p>
     <p class="center"><a id="devaddr" target="_blank" href="monero:49VtwYXDbbh7hq57wwkLH36x4D6XV6Tr2P93ANnBi9qFGyYZbx8SXWPUHC9V1o7N41b4c3WJ1kubkffRfPTPfMuB8QUqFD5"><img class="donate-button"/></a></p>
