@@ -109,7 +109,7 @@ else
     echo ""
     
     if [ "$NEWPASS" != "$CONFIRM_NEWPASS" ]; then
-        echo "  You passwords do not match. Please restart the script and try again."
+        echo "  Your passwords do not match. Please restart the script and try again."
         echo ""
         read -p "  Press 'enter' to exit."
         exit
