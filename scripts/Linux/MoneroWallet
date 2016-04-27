@@ -50,7 +50,7 @@ echo ""
 echo "----------------------"
 echo ""
 
-if [ -e "$FILE" ]; then
+if [ -f "$FILE" ]; then
     # If this script has been run previously, a wallet should already exist. Start it in RPC mode.
     echo "  Launching simplewallet in RPC mode, listening on localhost (127.0.0.1), port 18082."
     echo ""
