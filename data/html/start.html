@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en" id="start-html">
+<head>
+  <meta charset="UTF-8">
+  <title>Monero Wallet for Google Chrome&#8482;</title>
+  <link href="/data/css/style-general.css" rel="stylesheet" type="text/css">
+  <link href="/data/css/style-page-start.css" rel="stylesheet" type="text/css">
+</head>
+<body id="start-body">
+
+  <div class="page-container">
+  
+    <div id="logo-header">
+      <h1><img id="monero-logo" src="/data/img/logo686white.png"> Monero Wallet</h1>
+    </div>
+    
+    <div class="main-area">
+      <div id="start-tab">
+      
+        <h2> Thanks for using Monero Wallet for Chrome&#8482;! </h2>
+        
+        <p class="left">
+          This wallet aims to make Monero's official simplewallet a joy to use, combining a visually appealing interface with a high degree of functionality.
+          In fact, this wallet is not actually a wallet at all, but rather a layer on top of simplewallet to allow you to use Monero's official command line wallet in an easy and fun.
+        </p>
+          
+        <p class="left">
+          Before continuing, if you do not have simplewallet installed, download it from <a target="_blank" href="https://getmonero.org/downloads/">getmonero.org</a>.
+        </p>
+        
+        <p class="left">
+          Then, follow the "Getting Started" guide to finish setting up Monero Wallet for Chrome&#8482;!
+        </p>
+        
+        <div class="getting-started" id="pick-os">
+          <h3 class="center"> Getting started: </h3>
+          <p class="center"> Please pick your operating system: </p>
+          <ul class="setup-options-list" id="pick-os-list">
+            <li id="pick-windows">Windows</li>
+            <li id="pick-osx">OS X</li>
+            <li id="pick-linux">Linux</li>
+          </ul>
+        </div>
+        
+        <div class="getting-started" id="os-windows">
+          <h3 class="center">Getting Started with Windows</h3>
+          <p class="left">
+            To use this extension, you need to have simplewallet running in rpc mode on the same machine as your Chrome or Chromium browser.
+          </p>
+        </div>
+        
+        <!-- OS X Tutorial -->
+        <div class="getting-started" id="os-osx">
+          <h3 class="center">Getting Started with OS X</h3>
+          <p class="left">
+            To use this extension, you need to have simplewallet running in rpc mode on the same machine as your Chrome or Chromium browser.
+            You can choose to set this up yourself, or download a script written by the author of this extension to handle that for you.
+            Please pick which option you'd like.
+          </p>
+          <ul class="setup-options-list">
+            <li id="osx-setup-diy">Do It Yourself</li>
+            <li id="osx-setup-script">Download Script</li>
+          </ul>
+        </div>
+          
+        <!-- OS X DIY -->
+        <div class="getting-started" id="osx-diy">
+            <h3 class="center">Getting Started with OS X</h3>
+            <p class="left">
+              This walkthrough will teach you how to run simplewallet, first as the regular command line wallet, and then in rpc mode.
+              It assumes you are brand new to simplewallet and do not have a wallet currently installed.
+              If you want to use a wallet that you have installed previously, you can probably skip some steps and modify basic commands to fit your need.
+            
+            <h3 class="left">Initializing a new wallet</h3>
+            <p class="left">
+              To run simplewallet in rpc mode, you first need to have an initialized and synced wallet.
+              If you do not have this yet, we recommend that you make a new directory to hold your wallet.
+              Open "Finder" and navigate to your main user directory.
+              Now create a new folder and call it "MoneroWallet".
+            </p>
+            <p class="left">
+              To make simplewallet easiest to run, you should put it into your new directory.
+              Assuming you just downloaded the official Monero OS X applications, unzip that folder and copy "simplewallet" into your new "MoneroWallet" directory.
+            </p>
+            <p class="left">
+              Now that you've done some prep work, open the "Terminal" app.
+              The easiest way to find it if you are having trouble is to use the hotkey "cmnd"+"spacebar", and then type "Terminal" in the search menu.
+              We are going to navigate to your new "MoneroWallet" directory, and then open simplewallet.
+              In the terminal, type the following, and then hit enter.
+              See the following note regarding "--daemon-address".
+            </p>
+            <p class="terminal">
+              cd ~/MoneroWallet <br>
+              ./simplewallet --daemon-address node.moneroclub.com:8880
+            </p>
+            <p class="left">
+              Here we have told simplewallet to connect to a "remote node", hosted by a member of the Monero community over the internet.
+              It is safe to use such nodes from a security standpoint - node operators do not and cannot know your wallet's secret keys.
+              However, using a remote node does lose some privacy, as the remote node operator can see some of your activity that would normally be hidden.
+              If you want full privacy, you can connect to your own node.
+              If that node is on the same computer as simplewallet, you can omit the "--daemon-address ..." flag.
+              Running your own node is not covered here, but help is available on <a target="_blank" href="https://getmonero.org/getting-started/running">getmonero.org</a>.
+            </p>
+            <p class="left">
+              Once you run the commands above, simplewallet should start. It will prompt you for a wallet name and password.
+              For this tutorial, we'll use "MoneroWallet.bin" as the wallet name and "xxxx" as the password.
+              Please pick your own stronger password and be sure to write it down somewhere safe!
+              Then choose the language you want to use.
+            </p>
+            <p class="left">
+              At this point, simplewallet will generate a new wallet for you.
+              If you look in your directory, you will see a number of files, including "MoneroWallet.bin", "MoneroWallet.bin.address.txt", and "MoneroWallet.bin.keys".
+              These files are the core of your wallet.
+            </p>
+            <p class="left">
+              In the terminal, you will see that simplewallet has provided you with a number of pieces of information.
+              Please read through this, and write down the 25 word "seed" that it gives you for safe keeping.
+              If your wallet ever becomes corrupt, all you ever need to restore it is that seed.
+            </p>
+            <p class="left">
+              There is only one thing left to do before being able to switch to the extension wallet.
+              Simplewallet should have told you to type "refresh" to get your wallet going. Do that now.
+            </p>
+            <p class="terminal">
+              refresh
+            </p>
+            <p class="left">
+              This will begin to scan Monero's blockchain for your wallet and bring you up to date.
+              This may take some time, especially if you are using a remote node.
+              Once it is done, simplewallet will tell you it is up to date and display a balance.
+              You can now exit the wallet.
+            <p>
+            <p class="terminal">
+              exit
+            </p>
+            
+            <h3 class="left">Running a wallet in rpc mode</h3>
+            <p class=left">
+              Once you have an initialized wallet, you can launch simplewallet in rpc mode to interact with the Monero Wallet extension.
+              In the Terminal, launch simplewallet with the following commands (again including "--daemon-address ..." if you want to connect to the moneroclub.com remote node).
+            <p>
+            <p class="terminal">
+              ./simplewallet --wallet-file MoneroWallet.bin --password xxxx --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082 --daemon-address node.moneroclub.com:8880
+            <p>
+            <p class="left">
+              Simplewallet will now be running in rpc mode.
+              Note that if you try to type anything into the terminal, simplewallet does not respond.
+              This is because rpc mode disables interactive mode.
+              In addition, you cannot close the terminal without closing simplewallet.
+              If you want to be able to close the wallet, we recommend using the "screen" command.
+              This is not covered in the tutorial, but can be easily searched for online looking for something like "screen command osx"
+            </p>
+            <p class="left">
+              Now check your chrome extension to see if it is connected online!
+              Click the extension icon in the upper right of your browser to open the extension popup.
+            </p>
+        </div>
+        <!-- End of OS X DIY -->
+          
+        <!-- OS X Script -->
+        <div class="getting-started" id="osx-script">
+            <h3 class="center">Getting Started with OS X</h3>
+            <h3 class="left"> Monero Simplewallet Launcher Script </h3> 
+            <p class="left">
+              To make launching simplewallet as simple and straightforward as possible, we have created an easy-to-use launcher script.
+            </p>
+            <p class="left">
+              First, download the script.
+            </p>
+            <p class="left">
+              Now, open the Finder and navigate to Applications.
+              Make a new folder in Applications called "MoneroWallet".
+            </p>
+            <p class="left">
+              Copy both the downloaded script "MoneroWallet.command" and simplewallet into your new MoneroWallet folder.
+              It is important that this folder is located at exactly "/Applications/MoneroWallet".
+            </p>
+            
+            <h4 class="left"> Running the script for the first time, setting up a new wallet. </h4>
+            <p class="left">
+              Double-click "MoneroWallet.command".
+              The script will launch in a new Terminal window and display a message.
+              Follow the dialog, choosing a password and other options.
+              Unless you have your own Monero node running or want to specify a specific node, choose the "remote" option when prompted.
+            </p>
+            <p class="left">
+              Once you have chosen all of your settings, simplewallet will generate a new wallet for you and tell you a secret 25 word "seed".
+              Write down your seed and keep it safe and private. This seed is all you ever need to restore a corrupt or lost wallet.
+            </p>
+            <p class="left">
+              There is only one thing left to do before being able to switch to the extension wallet.
+              Simplewallet should have told you to type "refresh" to get your wallet going. Do that now.
+            </p>
+            <p class="left">
+              This will begin to scan Monero's blockchain for your wallet and bring you up to date.
+              This may take some time, especially if you are using a remote node.
+              Once it is done, simplewallet will tell you it is up to date and display a balance.
+              You can now exit the wallet by typing "exit".
+            <p>
+            
+            <h4 class="left">Running the script all future times after setup</h4>
+            <p class="left">
+              After you run the script for the first time, using the script in the future is much easier.
+            </p>
+            <p class="left">
+              Double-click the "MoneroWallet.command" file again.
+            </p>
+            <p class="left">
+              This time, the script will ask you to enter the wallet you chose before and pick a node.
+              Then it will launch simplewallet in rpc mode, and give you some feedback.
+              Once finished, you can safely exit the script by typing "exit" or hitting the "x" button in the top left.
+            </p>
+            <p class="left">
+              Now check your chrome extension to see if it is connected online!
+              Click the extension icon in the upper right of your browser to open the extension popup.
+            </p>
+            <p class="left">
+              You can turn off your wallet from the extension by clicking "Stop Wallet" in the extension's menu.
+              If you do this, you will need to re-launch the script to use the extension again later.
+            </p>
+        </div>
+        <!-- End of OS X Script -->
+        
+        
+        <!-- Linux Tutorial -->
+        <div class="getting-started" id="os-linux">
+          <h3 class="center">Getting Started with Linux</h3>
+          <p class="left">
+            To use this extension, you need to have simplewallet running in rpc mode on the same machine as your Chrome or Chromium browser.
+            You can choose to set this up yourself, or download a script written by the author of this extension to handle that for you.
+            Please pick which option you'd like.
+          </p>
+          <ul class="setup-options-list">
+            <li id="linux-setup-diy">Do It Yourself</li>
+            <li id="linux-setup-script">Download Script</li>
+          </ul>
+        </div>
+          
+        <!-- Linux DIY -->
+        <div class="getting-started" id="linux-diy">
+          <h3 class="center">Getting Started with Linux</h3>
+          <p class="left">
+            This walkthrough will teach you how to run simplewallet, first as the regular command line wallet, and then in rpc mode.
+            It assumes you are brand new to simplewallet and do not have a wallet currently installed.
+            If you want to use a wallet that you have installed previously, you can probably skip some steps and modify basic commands to fit your need.
+          </p>
+          <h3 class="left">Initializing a new wallet</h3>
+          <p class="left">
+            To run simplewallet in rpc mode, you first need to have an initialized and synced wallet.
+            If you do not have this yet, we recommend that you make a new directory to hold your wallet.
+            Create a new folder and call it "MoneroWallet".
+            For this tutorial, we'll make the folder in your main user directory (ex: "/home/user1", or "~/").
+          </p>
+          <p class="left">
+            To make simplewallet easiest to run, you should put it into your new directory.
+            Assuming you just downloaded the official Monero Linux applications, unzip that folder and copy "simplewallet" into your new "MoneroWallet" directory.
+          </p>
+          <p class="left">
+            Now that you've done some prep work, open the "Terminal" app.
+            Navigate to your new "MoneroWallet" directory, and then open simplewallet.
+            In the terminal, type the following, and then hit enter. See the following note regarding "--daemon-address".
+          </p>
+          <p class="terminal">
+            cd ~/MoneroWallet <br>
+            ./simplewallet --daemon-address node.moneroclub.com:8880
+          </p>
+          <p class="left">
+            Here we have told simplewallet to connect to a "remote node", hosted by a member of the Monero community over the internet.
+            It is safe to use such nodes from a security standpoint - node operators do not and cannot know your wallet's secret keys.
+            However, using a remote node does lose some privacy, as the remote node operator can see some of your activity that would normally be hidden.
+            If you want full privacy, you can connect to your own node.
+            If that node is on the same computer as simplewallet, you can omit the "--daemon-address ..." flag.
+            Running your own node is not covered here, but help is available on <a target="_blank" href="https://getmonero.org/getting-started/running">getmonero.org</a>.
+          </p>
+          <p class="left">
+            Once you run the commands above, simplewallet should start. It will prompt you for a wallet name and password.
+            For this tutorial, we'll use "MoneroWallet.bin" as the wallet name and "xxxx" as the password.
+            Please pick your own stronger password and be sure to write it down somewhere safe!
+            Then choose the language you want to use.
+          </p>
+          <p class="left">
+            At this point, simplewallet will generate a new wallet for you.
+            If you look in your directory, you will see a number of files, including "MoneroWallet.bin", "MoneroWallet.bin.address.txt", and "MoneroWallet.bin.keys".
+            These files are the core of your wallet.
+          </p>
+          <p class="left">
+            In the terminal, you will see that simplewallet has provided you with a number of pieces of information.
+            Please read through this, and write down the 25 word "seed" that it gives you for safe keeping.
+            If your wallet ever becomes corrupt, all you ever need to restore it is that seed.
+          </p>
+          <p class="left">
+            There is only one thing left to do before being able to switch to the extension wallet.
+            Simplewallet should have told you to type "refresh" to get your wallet going. Do that now.
+          </p>
+          <p class="terminal">
+            refresh
+          </p>
+          <p class="left">
+            This will begin to scan Monero's blockchain for your wallet and bring you up to date.
+            This may take some time, especially if you are using a remote node.
+            Once it is done, simplewallet will tell you it is up to date and display a balance.
+            You can now exit the wallet.
+          </p>
+          <p class="terminal">
+            exit
+          </p>
+          
+          <h3 class="left">Running a wallet in rpc mode</h3>
+          <p class=left">
+            Once you have an initialized wallet, you can launch simplewallet in rpc mode to interact with the Monero Wallet extension.
+            In the Terminal, launch simplewallet with the following commands (again including "--daemon-address ..." if you want to connect to the moneroclub.com remote node).
+          <p>
+          <p class="terminal">
+            ./simplewallet --wallet-file MoneroWallet.bin --password xxxx --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082 --daemon-address node.moneroclub.com:8880
+          <p>
+          <p class="left">
+            Simplewallet will now be running in rpc mode.
+            Note that if you try to type anything into the terminal, simplewallet does not respond.
+            This is because rpc mode disables interactive mode.
+            In addition, you cannot close the terminal without closing simplewallet.
+            If you want to be able to close the wallet, we recommend using the "screen" command.
+            This is not covered in the tutorial, but can be easily searched for online looking for something like "screen command osx"
+          </p>
+          <p class="left">
+            Now check your chrome extension to see if it is connected online!
+            Click the extension icon in the upper right of your browser to open the extension popup.
+          </p>
+        </div>
+        <!-- End of Linux DIY -->
+        
+        <!-- Linux Script -->
+        <div class="getting-started" id="linux-script">
+            <h3 class="center">Getting Started with Linux</h3>
+            <h3 class="left"> Monero Simplewallet Launcher Script </h3> 
+            <p class="left">
+              To make launching simplewallet as simple and straightforward as possible, we have created an easy-to-use launcher script.
+            </p>
+            <p class="left">
+              First, download the script "MoneroWallet".
+            </p>
+            <p class="left">
+              Now, open the Terminal.
+              Make sure you are in your make user directory, then make a new folder called "MoneroWallet". Type:
+            </p>
+            <p class="terminal">
+              cd ~/ <br>
+              mkdir MoneroWallet
+            </p>
+            <p class="left">
+              Copy both the downloaded script "MoneroWallet" and simplewallet into your new MoneroWallet folder.
+              It is important that this folder is located at exactly "~/MoneroWallet".
+            </p>
+            
+            <h4 class="left"> Running the script for the first time, setting up a new wallet. </h4>
+            <p class="left">
+              In the Terminal, navigate to your new folder.
+              Then run the Monero Simplewallet Launcher script:
+            </p>
+            <p class="terminal">
+              cd ~/MoneroWallet <br>
+              ./MoneroWallet
+            </p>
+            <p class="left">
+              The script will launch a dialog for creating a new wallet.
+              Follow the dialog, choosing a password and other options.
+              Unless you have your own Monero node running or want to specify a specific node, choose the "remote" option when prompted.
+            </p>
+            <p class="left">
+              Once you have chosen all of your settings, simplewallet will generate a new wallet for you and tell you a secret 25 word "seed".
+              Write down your seed and keep it safe and private. This seed is all you ever need to restore a corrupt or lost wallet.
+            </p>
+            <p class="left">
+              There is only one thing left to do before being able to switch to the extension wallet.
+              Simplewallet should have told you to type "refresh" to get your wallet going. Do that now.
+            </p>
+            <p class="terminal">
+              refresh
+            </p>
+            <p class="left">
+              This will begin to scan Monero's blockchain for your wallet and bring you up to date.
+              This may take some time, especially if you are using a remote node.
+              Once it is done, simplewallet will tell you it is up to date and display a balance.
+              You can now exit the wallet by typing "exit".
+            <p>
+            <p class="terminal">
+              exit
+            </p>
+            
+            <h4 class="left">Running the script all future times after setup</h4>
+            <p class="left">
+              After you run the script for the first time, using the script in the future is much easier.
+            </p>
+            <p class="left">
+              In the Terminal, navigate to your new folder.
+              Then run the Monero Simplewallet Launcher script:
+            </p>
+            <p class="terminal">
+              cd ~/MoneroWallet <br>
+              ./MoneroWallet
+            </p>
+            <p class="left">
+              This time, the script will ask you to enter the wallet you chose before and pick a node.
+              Then it will launch simplewallet in rpc mode, and give you some feedback.
+              Once finished, you can safely exit the script by typing "exit" or hitting the "x" button in the Terminal window.
+            </p>
+            <p class="left">
+              Now check your chrome extension to see if it is connected online!
+              Click the extension icon in the upper right of your browser to open the extension popup.
+            </p>
+            <p class="left">
+              You can turn off your wallet from the extension by clicking "Stop Wallet" in the extension's menu.
+              If you do this, you will need to re-launch the script to use the extension again later.
+            </p>
+        </div>
+        <!-- End of Linux Script -->
+        
+      </div>
+    </div>
+    
+    <div class="footer-buffer"></div>
+    
+    <div class="page-footer">
+      Monero Wallet for Google Chrome&#8482; is distributed without warranty under the <a href="/LICENSE" target="_blank">MIT License</a>.<br>
+      Google Chrome is a trademark of Google Inc. Use of this trademark is subject to Google Permissions.
+    </div>
+    
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,59 @@
+/* 
+ * Monero Simplewallet Manager Stylesheet
+ * See LICENSE for use.
+ */
+
+/* Style Keys Page Tab */
+html#start-html, body#start-body { width: 100%; height: 100%; }
+div#start-tab { width: auto; margin: 5px 10%; }
+p {
+  padding: 10px 0;
+  width: 100%;
+  margin: 5px 0;
+  color: #313131;
+  font-size: 13pt;
+}
+
+p.terminal {
+  border: 1px solid #E0E0E0;
+  padding: 5px;
+  width: auto;
+  margin: 5px 20px;
+  background: #313131;
+  color: #FFFFFF;
+  font-size: 11pt;
+  text-align: left;
+  font-family: monospace;
+}
+
+div.getting-started {
+  margin: 10px;
+  padding: 10px;
+  width: auto;
+  border: 0px solid #E0E0E0;
+  border-top-width: 1px;
+}
+
+ul.setup-options-list {
+  list-style: none;
+  width: 100%;
+  margin: 5px auto;
+  border: 0px;
+  padding: 0;
+  text-align: center;
+}
+
+ul.setup-options-list li {
+  font-size: 12pt;
+  padding: 10px;
+  margin: 0 5px;
+  width: 160px;
+  border: 1px solid #E0E0E0;
+  border-radius: 5px;
+  display: inline-block;
+  text-align: center;
+}
+
+div#os-windows, div#os-osx { display: none; }
+
+div#osx-diy, div#osx-script { display: none; }
