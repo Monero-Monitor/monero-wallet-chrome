@@ -129,13 +129,14 @@ function monitorWalletInfo() {
     wallet_info.port = items.walletPort;
     
     // If port is not set, launch the start menu
-    if (wallet_info.port == undefined || wallet_info.port == "") {
+    if (items.walletPort == undefined || items.walletPort == "") {
       chrome.storage.sync.set({
         walletPort: 18082
       },
       function() {
         var start_tab = chrome.tabs.create({url: '/data/html/start.html'});
       });
+      wallet_info.port = 18082;
     }
     
     // Start wallet info polling:
