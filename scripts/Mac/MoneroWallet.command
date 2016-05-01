@@ -120,7 +120,7 @@ else
     
     if [ $DAEMON -eq 1 ]; then
         /Applications/MoneroWallet/simplewallet --generate-new-wallet $FILE --password $NEWPASS --daemon-address node.moneroclub.com:8880
-    elif [ $DAEMON -eq 2]; then
+    elif [ $DAEMON -eq 2 ]; then
         /Applications/MoneroWallet/simplewallet --generate-new-wallet $FILE --password $NEWPASS
     else
         /Applications/MoneroWallet/simplewallet --generate-new-wallet $FILE --password $NEWPASS --daemon-address $CUSTOM_DAEMON
