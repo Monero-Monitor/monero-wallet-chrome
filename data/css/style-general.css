@@ -75,7 +75,7 @@ div.errormsg {
 div.successmsg {
   border: 1px solid #33DD33;
   border-radius: 5px;
-  background: #EEFFEE;
+  background: #F0FFF0;
   text-align: center;
   font-size: 12pt; 
   color: #33DD33;
@@ -92,6 +92,7 @@ div.successmsg {
 
 .mono { font-family: monospace; }
 .bold { font-weight: bold; }
+.italics { font-style: italic; }
 
 /* General color handling */
 .lightgray { color: #505050; }

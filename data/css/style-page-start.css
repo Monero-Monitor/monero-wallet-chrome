@@ -6,6 +6,16 @@
 /* Style Keys Page Tab */
 html#start-html, body#start-body { width: 100%; height: 100%; }
 div#start-tab { width: auto; margin: 5px 10%; }
+
+h4 {
+  width: 100%;
+  margin: 0;
+  margin-top: 40px;
+  border: 0 solid #E0E0E0;
+  border-top-width: 1px;
+  padding: 10px 0;
+}
+
 p {
   padding: 10px 0;
   width: 100%;
@@ -18,7 +28,7 @@ p.terminal {
   border: 1px solid #E0E0E0;
   padding: 5px;
   width: auto;
-  margin: 5px 20px;
+  margin: 5px 15px;
   background: #313131;
   color: #FFFFFF;
   font-size: 11pt;
@@ -30,8 +40,30 @@ div.getting-started {
   margin: 10px;
   padding: 10px;
   width: auto;
-  border: 0px solid #E0E0E0;
-  border-top-width: 1px;
+}
+
+div.info-box {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #33DD33;
+  border-radius: 10px;
+  background: #F0FFF0;
+}
+
+div.note-box {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #DD3333;
+  border-radius: 10px;
+  background: #FFF0F0;
+}
+
+div.dyk-box {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
+  background: #F0F0F0;
 }
 
 ul.setup-options-list {
@@ -47,13 +79,41 @@ ul.setup-options-list li {
   font-size: 12pt;
   padding: 10px;
   margin: 0 5px;
-  width: 160px;
-  border: 1px solid #E0E0E0;
+  width: 198px;
+  border: 1px solid #FC6622;
   border-radius: 5px;
+  background: #FAFAFA;
+  text-align: center;
+  color: #FC6622;
   display: inline-block;
   text-align: center;
+  cursor: pointer;
 }
 
-div#os-windows, div#os-osx { display: none; }
+ul.setup-options-list li:hover { font-weight: bold; }
 
-div#osx-diy, div#osx-script { display: none; }
+ul.setup-steps {}
+
+ul.setup-steps li {
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 13pt;
+}
+
+#launcher-script-refer, div#start-tab a {
+  color: #356797!important;
+  text-decoration: none;
+  outline: 0;
+}
+
+#launcher-script-refer:hover, div#start-tab a:hover {
+  color: #98CD6D!important;
+  text-decoration: underline;
+  outline: 0;
+}
+
+div#pick-os { display: none; }
+
+div#os-windows, div#os-osx, div#os-linux { display: none; }
+
+div#osx-script, div#linux-script, div#unix-diy { display: none; }
