@@ -11,7 +11,7 @@ more information or see http://opensource.org/licenses/MIT.
 
 ## About
 
-[![Now Available in the Chrome Store](extras/ChromeWebStore_BadgeWBorder_v2_206x58.png)](https://chrome.google.com/webstore/)
+[![Now Available in the Chrome Store](extras/ChromeWebStore_BadgeWBorder_v2_206x58.png)](https://chrome.google.com/webstore/detail/monero-wallet-for-google/bddoeeocbnbkdlciahimmaciiiiadocb)
 
 Interact with a local Monero Simplewallet via the Chrome or Chromium browser!
 
