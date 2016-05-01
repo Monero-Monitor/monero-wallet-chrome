@@ -11,9 +11,7 @@ more information or see http://opensource.org/licenses/MIT.
 
 ## About
 
-Coming soon to the Chrome Store!
-
-[![Coming soon to the Chrome Store](extras/ChromeWebStore_BadgeWBorder_v2_206x58.png)](https://chrome.google.com/webstore/)
+[![Now Available in the Chrome Store](extras/ChromeWebStore_BadgeWBorder_v2_206x58.png)](https://chrome.google.com/webstore/)
 
 Interact with a local Monero Simplewallet via the Chrome or Chromium browser!
 
@@ -31,7 +29,7 @@ Please feel free to fork, submit pull requests or issues, or otherwise contribut
 in making this extension as useful as possible.
 
 If you find this extension useful, please consider donating to the main developer:  
-[49VtwYXDbbh7hq57wwkLH36x4D6XV6Tr2P93ANnBi9qFGyYZbx8SXWPUHC9V1o7N41b4c3WJ1kubkffRfPTPfMuB8QUqFD5](monero:49VtwYXDbbh7hq57wwkLH36x4D6XV6Tr2P93ANnBi9qFGyYZbx8SXWPUHC9V1o7N41b4c3WJ1kubkffRfPTPfMuB8QUqFD5)
+[4AL2cmmrVC41if2TzxfYUKFoVF8xnkzszFX7KVS21zh1HgMWWTfa8wh23xBWLG2htS42LaqfQGgz69vVWA5uZGhaNLc72jB](monero:4AL2cmmrVC41if2TzxfYUKFoVF8xnkzszFX7KVS21zh1HgMWWTfa8wh23xBWLG2htS42LaqfQGgz69vVWA5uZGhaNLc72jB)
 
 
 ## Installation and Use
