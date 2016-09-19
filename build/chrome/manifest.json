@@ -5,7 +5,7 @@
   "author": "bigreddmachine",
   "version": "0.9",
   "version_name": "0.9-beta",
-  "description": "A Chrome™ extension for using Monero's simplewallet",
+  "description": "A Chrome™ extension for using monero-wallet-cli",
   "icons": {
     "128":"data/img/logo128.png",
     "256":"data/img/logo256.png",

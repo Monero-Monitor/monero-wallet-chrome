@@ -13,7 +13,7 @@ var wallet_info = {
 // Listen for part of the extension requesting wallet info and reply:
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   console.log(sender.tab ? "from a content script:" + sender.tab.url : "from the extension");
-  if (request.greeting == "Monero Simplewallet Send Wallet Info") {
+  if (request.greeting == "Monero monero-wallet-cli Send Wallet Info") {
     sendResponse(wallet_info);
   }
 });
@@ -21,7 +21,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 // Listen for extension changing the wallet port:
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   console.log(sender.tab ? "from a content script:" + sender.tab.url : "from the extension");
-  if (request.greeting == "Monero Simplewallet Update Wallet Port") {
+  if (request.greeting == "Monero monero-wallet-cli Update Wallet Port") {
     wallet_info.port = request.newWalletPort;
     getAddress(wallet_info.port,
       function (resp) {

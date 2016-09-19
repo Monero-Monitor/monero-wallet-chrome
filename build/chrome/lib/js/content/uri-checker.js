@@ -1,16 +1,16 @@
 // Check links and add onclick to Monero URIs:
 function checkLinksOnPage() {
   var links_on_page = document.getElementsByTagName("a");
-  for (var i = 0; i < links_on_page.length; i++) {  
+  for (var i = 0; i < links_on_page.length; i++) {
     if (links_on_page[i].href.substring(0,7) == 'monero:') {
-      links_on_page[i].onclick = function () { openSimplewalletSend(this.href); return false; }
+      links_on_page[i].onclick = function () { openMoneroWalletCLIsend(this.href); return false; }
     }
   }
 }
 checkLinksOnPage();
 
 // Parses Monero URI and puts into wallet's Send tab and opens wallet:
-function openSimplewalletSend(href) {
+function openMoneroWalletCLIsend(href) {
   var parsed_href = parseMoneroURI(href);
   var href_json = {
     address: parsed_href.address,
@@ -18,8 +18,8 @@ function openSimplewalletSend(href) {
     payment_id: (parsed_href.hasOwnProperty("payment_id") ? parsed_href.payment_id : ""),
     mixin: (parsed_href.hasOwnProperty("mixin") ? parsed_href.mixin : 3)
   };
-  
-  var request = {greeting: "Monero Simplewallet Payment Request", href: href_json};
+
+  var request = {greeting: "Monero monero-wallet-cli Payment Request", href: href_json};
   chrome.runtime.sendMessage(request, function(resp) { console.log(resp); });
 }
 

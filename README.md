@@ -13,7 +13,7 @@ more information or see http://opensource.org/licenses/MIT.
 
 [![Now Available in the Chrome Store](extras/ChromeWebStore_BadgeWBorder_v2_206x58.png)](https://chrome.google.com/webstore/detail/monero-wallet-for-google/bddoeeocbnbkdlciahimmaciiiiadocb)
 
-Interact with a local Monero Simplewallet via the Chrome or Chromium browser!
+Interact with a local Monero monero-wallet-cli via the Chrome or Chromium browser!
 
 * Monitor your wallet's balance
 * Send and receive XMR
@@ -43,9 +43,9 @@ line wallet. As such, it is important to note that this wallet does not store an
 information about your wallet (view key, seed, etc), though you can use this wallet to view
 these pieces of information.
 
-For the extension to work, you need to have an instance of simplewallet running in "RPC Mode"
-on the same computer as your browser. To learn how to install and start simplewallet, check
-[Getting Started with Simplewallet](https://github.com/Monero-Monitor/monero-wallet-chrome/blob/master/GETTING_STARTED.md).
+For the extension to work, you need to have an instance of monero-wallet-cli running in "RPC Mode"
+on the same computer as your browser. To learn how to install and start monero-wallet-cli, check
+[Getting Started with monero-wallet-cli](https://github.com/Monero-Monitor/monero-wallet-chrome/blob/master/GETTING_STARTED.md).
 
 For this extension to most easily work, your wallet will need to be open 24/7. For this
 reason, it is recommended that you treat the wallet as you would your physical wallet. In

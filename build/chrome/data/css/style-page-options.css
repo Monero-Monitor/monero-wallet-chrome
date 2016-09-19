@@ -1,5 +1,5 @@
-/* 
- * Monero Simplewallet Manager Stylesheet
+/*
+ * Monero monero-wallet-cli Manager Stylesheet
  * See LICENSE for use.
  */
 
@@ -9,7 +9,7 @@ h3 { padding: 0px; margin: 0px auto; }
 p { margin: 5px; }
 .center { width: 100%; text-align: center; }
 
-#simplewallet-port { width: 100px; }
+#monero-wallet-cli-port { width: 100px; }
 span#status { color: #98CD6D; line-height: 16px; }
 
 div#about { margin: 10px 0px; border: 0px solid #313131; border-top-width: 1px; }

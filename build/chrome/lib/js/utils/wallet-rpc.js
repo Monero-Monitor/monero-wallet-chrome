@@ -1,9 +1,9 @@
 /*
  * (c) Copyright 2016 bigreddmachine.
  *
- * These functions enable interactions with the Monero Simplewallet JSON RPC interface
+ * These functions enable interactions with the Monero monero-wallet-cli JSON RPC interface
  * using javascript in the browser. This requires the json-bigint.js in order to parse
- * Simplewallet numbers larger than the precision possible by Javascript.
+ * monero-wallet-cli numbers larger than the precision possible by Javascript.
  *
  * See LICENSE for terms and use.
  */
@@ -49,7 +49,7 @@ function walletJSONrpc(port, method, params, onSuccess, onFailure) {
   xhttp.send(json_string);
 }
 
-// Get the balance of connected simplewallet:
+// Get the balance of connected monero-wallet-cli:
 function getBalance(port, onSuccess, onFailure) {
   var method = "getbalance";
   walletJSONrpc(port, method, undefined,
@@ -62,7 +62,7 @@ function getBalance(port, onSuccess, onFailure) {
   );
 }
 
-// Get the address of connected simplewallet:
+// Get the address of connected monero-wallet-cli:
 function getAddress(port, onSuccess, onFailure) {
   var method = "getaddress";
   walletJSONrpc(port, method, undefined,
@@ -75,7 +75,7 @@ function getAddress(port, onSuccess, onFailure) {
   );
 }
 
-// Get the height of connected simplewallet:
+// Get the height of connected monero-wallet-cli:
 function getHeight(port, onSuccess, onFailure) {
   var method = "getheight";
   walletJSONrpc(port, method, undefined,
@@ -88,7 +88,7 @@ function getHeight(port, onSuccess, onFailure) {
   );
 }
 
-// Make a transfer from connected simplewallet:
+// Make a transfer from connected monero-wallet-cli:
 function transfer(port, destinations, payment_id, fee, mixin, unlock_time, get_tx_key, onSuccess, onFailure) {
   // Set up JSON_RPC call:
   var method = "transfer";
@@ -110,7 +110,7 @@ function transfer(port, destinations, payment_id, fee, mixin, unlock_time, get_t
   );
 }
 
-// Make a transfer from connected simplewallet:
+// Make a transfer from connected monero-wallet-cli:
 function transferSplit(port, destinations, payment_id, fee, mixin, unlock_time, get_tx_key, new_algorithm, onSuccess, onFailure) {
   // Set up JSON_RPC call:
   var method = "transfer_split";
@@ -137,7 +137,7 @@ function transferSplit(port, destinations, payment_id, fee, mixin, unlock_time, 
   );
 }
 
-// Sweep dust of connected simplewallet:
+// Sweep dust of connected monero-wallet-cli:
 function sweepDust(port, onSuccess, onFailure) {
   var method = "sweep_dust";
   walletJSONrpc(port, method, undefined, function(resp){
@@ -145,7 +145,7 @@ function sweepDust(port, onSuccess, onFailure) {
   });
 }
 
-// Store simplewallet:
+// Store monero-wallet-cli:
 function store(port, onSuccess, onFailure) {
   var method = "store";
   walletJSONrpc(port, method, undefined,
@@ -283,7 +283,7 @@ function splitIntegratedAddress(port, integrated_address, onSuccess, onFailure) 
 }
 
 
-// Disconnect simplewallet:
+// Disconnect monero-wallet-cli:
 function stopWallet(port, onSuccess, onFailure) {
   var method = 'stop_wallet';
   walletJSONrpc(port, method, undefined,
