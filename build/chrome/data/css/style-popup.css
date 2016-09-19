@@ -1,7 +1,24 @@
-/* 
+/*
  * Monero Simplewallet Manager Stylesheet
  * See LICENSE for use.
  */
+
+/* User Agent Login */
+div#set-user-agent {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #FAFAFA;
+    z-index: 5000;
+    display: block;
+    text-align: center;
+}
+
+div#set-user-agent h1 { margin-top: 110px; }
+
+input#user-agent { width: 80%; margin: 40px auto 20px; font-size: 14pt; }
 
 /* Menu Button and Menu */
 div#nav-menu { width: 450px; height: 30px; display: inline-text; background-color: #313131; }
@@ -160,7 +177,7 @@ li.nav-button::before {
 li.nav-button:hover::before { opacity: 1; bottom: 30px; transition-delay: 0.75s; }
 
 
-/* 
+/*
  * General Tabs Formatting
  */
 #status-tab, #overview-tab, #send-tab, #receive-tab, #transactions-tab {
@@ -286,7 +303,7 @@ div#save-contact-dialog {
   background: #FAFAFA;
   border: 1px solid #E0E0E0;
   box-shadow: 0px 0px 50px #888888;
-  text-align: center; 
+  text-align: center;
 }
 
 div#cancel-save-contact {
@@ -392,7 +409,7 @@ div.send-info {
   font-weight: bold;
   text-align: right;
   display: inline-block;
-  width:40px; 
+  width:40px;
 }
 div.send-balance {
   width: 130px;
@@ -445,7 +462,7 @@ div#send-pm-dests { width: 500px; margin: 5px auto; display: inline-block; text-
 #send-amount { width: 180px; }
 #send-pay-id { width: 370px; }
 #send-mixin { width: 130px; }
-        
+
 div#send-error { width: 500px; margin: 5px auto; display: none; }
 
 div#send-success { width: 500px; margin: 5px auto; display: none; }
@@ -611,7 +628,7 @@ div.outgoing-tx-toggle-show, div.outgoing-tx-toggle-hide {
   cursor: pointer;
 }
 
-.outgoing-tx-toggle-show:hover, .outgoing-tx-toggle-show:active, 
+.outgoing-tx-toggle-show:hover, .outgoing-tx-toggle-show:active,
 .outgoing-tx-toggle-hide:hover, .outgoing-tx-toggle-hide:active {
   color: #98CD6D;
   text-decoration: underline;

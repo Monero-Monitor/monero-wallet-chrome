@@ -39,7 +39,7 @@ If you do not want to install this extension from the Chrome Store, you can
 [install from Github](#install-from-github).
 
 This extension is not a full wallet, but rather is an interface to Monero's official command
-line wallet. As such, it is important to note that this wallet does not store any sensitive 
+line wallet. As such, it is important to note that this wallet does not store any sensitive
 information about your wallet (view key, seed, etc), though you can use this wallet to view
 these pieces of information.
 
@@ -78,11 +78,11 @@ Then install in Chrome:
 To build this extension from source:
 
     git clone https://github.com/Monero-Monitor/monero-wallet-chrome
-    
+
     cd monero-wallet-chrome
-    
+
     ./build-chrome.sh
-    
+
 Install in Chrome:
 
 1) Navigate to chrome://extensions
@@ -90,5 +90,5 @@ Install in Chrome:
 2) Enable Developer Mode
 
 3) Load Unpacked Extension located at:
-    
+
     .../monero-wallet-chrome/build/chrome

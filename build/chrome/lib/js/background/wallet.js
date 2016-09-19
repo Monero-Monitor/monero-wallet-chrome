@@ -87,7 +87,7 @@ var get_balance = function () {
         // Update balance, pause, then check again
         wallet_info.balance = coinsFromAtomic(resp.result.balance.toString());
         wallet_info.unlockedBalance = coinsFromAtomic(resp.result.unlocked_balance.toString());
-        
+
         if (old_balance != wallet_info.balance) {
           updateBadge();
         }
@@ -127,7 +127,7 @@ function monitorWalletInfo() {
     walletPort: ''
   }, function(items) {
     wallet_info.port = items.walletPort;
-    
+
     // If port is not set, launch the start menu
     if (items.walletPort == undefined || items.walletPort == "") {
       chrome.storage.sync.set({
@@ -138,7 +138,7 @@ function monitorWalletInfo() {
       });
       wallet_info.port = 18082;
     }
-    
+
     // Start wallet info polling:
     get_status();
     get_balance();
@@ -147,4 +147,3 @@ function monitorWalletInfo() {
 }
 
 monitorWalletInfo();
-

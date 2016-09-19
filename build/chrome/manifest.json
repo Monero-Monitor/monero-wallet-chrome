@@ -43,6 +43,8 @@
   "permissions": [
     "storage",
     "tabs",
+    "webRequest",
+    "webRequestBlocking",
     "http://127.0.0.1/*"
   ]
 }
