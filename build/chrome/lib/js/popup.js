@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  document.getElementById("login-whats-this").addEventListener("click", function () {
+      chrome.tabs.create({url: '/data/html/start.html'});
+  });
+
   // Login with valid User Agent
   document.getElementById('user-agent-form').addEventListener('submit', function (e) {
     e.preventDefault();
