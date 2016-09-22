@@ -71,19 +71,20 @@
           <h4 class="left">Running a wallet in rpc mode</h4>
           <p class="left">
             To use this extension, you must launch monero-wallet-cli in rpc mode.
-            This requires that you use an extra two flags as part of your launch script, <span class="mono">--rpc-bind-ip</span> and <span class="mono">--rpc-bind-port</span>.
-            Typically, you want to bind to your localhost IP, 127.0.0.1, and to port 18082. For example:
+            This requires that you use an extra three flags as part of your launch script, <span class="mono">--rpc-bind-ip</span>, <span class="mono">--rpc-bind-port</span>, and <span class="mono">--user-agent</span>.
+            Typically, you want to bind to your localhost IP, 127.0.0.1, and to port 18082. Your user agent should be a random string of characters and numbers - this acts to authenticate RPC requests to monero-wallet-cli. For example:
           <p>
           <p class="terminal">
-            monero-wallet-cli.exe --wallet-file &lt;wallet name&gt; --password &lt;wallet password&gt; --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082
+            monero-wallet-cli.exe --wallet-file &lt;wallet name&gt; --password &lt;wallet password&gt; --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082 --user-agent &lt;some random string&gt;
           </p>
           <p class="left">
             For monero-wallet-cli to connect to your extension, you will need to tell the extension which port to listen on.
             If you used port 18082, you are ready to go. If not, open the extension's <a target="_blank" href="/data/html/options.html">Settings page</a> and set the correct port.
+            Each time you open the extension, you will be asked to authenticate yourself with your chosen User Agent.
           </p>
           <p class="left">
-            After starting monero-wallet-cli in rpc mode, check your chrome extension to see if it is connected online.
-            Click the extension icon in the upper right of your browser to open the extension popup.
+            After starting monero-wallet-cli in rpc mode, check your chrome extension to see if it can connect.
+            Click the extension icon in the upper right of your browser to open the extension popup and log in with your User Agent.
             It may take a few seconds for your extension to fully connect to monero-wallet-cli.
           </p>
           <div class="dyk-box">
@@ -145,8 +146,8 @@
                  Note: it is important that you do not use a different folder name, as our script requires that things are installed exactly in this location. </li>
             <li> Download the official Monero binaries from <a target="_blank" href="https://getmonero.org/downloads/">getmonero.org</a> for OS X. <br>
                  Unzip the downloaded folder and copy the "monero-wallet-cli" program into your new "MoneroWallet" directory. </li>
-            <li> Download "Launch Script - OS X.zip" from the latest release on our <a target="_blank" href="https://github.com/Monero-Monitor/monero-wallet-chrome/releases">GitHub page</a>. <br>
-                 Copy the downloaded script "MoneroWallet.command" into your "MoneroWallet" folder. </li>
+            <li> Download "Launch-Script-macOS.zip" from the latest release on our <a target="_blank" href="https://github.com/Monero-Monitor/monero-wallet-chrome/releases">GitHub page</a>. <br>
+                 Unzip and copy the downloaded script "MoneroWallet.command" into your "MoneroWallet" folder. </li>
           </ul>
           <p class="left">
             If you have followed the steps above correctly, you are almost ready to make a new wallet to use with the Monero Wallet extension.
@@ -194,12 +195,23 @@
             Any time you want to use your wallet, the script will need to be running.
           </p>
           <ul class="setup-steps">
-            <li> To run the script, double-click the "MoneroWallet.command" file again. <br>
-                 This time, the script will ask you to enter the password you chose before and pick a node. <br>
-                 Then it will launch monero-wallet-cli in rpc mode, and give you some feedback. <br>
-                 Once finished, you can safely exit the script by typing "exit" or hitting the "x" button in the top left. </li>
-            <li> Now check your chrome extension to see if it is connected online! <br>
-                 Click the extension icon in the upper right of your browser to open the extension popup. </li>
+            <li>
+              To run the script, double-click the "MoneroWallet.command" file again. <br>
+              This time, the script will ask you to enter the password you chose before and pick a node.
+            </li>
+            <li>
+              In addition, it will ask you to pick a User Agent.
+              Your user agent should be a random string of characters and numbers - this acts to authenticate RPC requests to monero-wallet-cli.
+              You can pick a new User Agent each time you open monero-wallet-cli, or use the same one.
+            </li>
+            <li>
+              Then it will launch monero-wallet-cli in rpc mode, and give you some feedback. <br>
+              Once finished, you can safely exit the script by typing "exit" or hitting the "x" button in the top left.
+            </li>
+            <li>
+              Now check your chrome extension to see if it is connected online! <br>
+              Click the extension icon in the upper right of your browser to open the extension popup and log in with your User Agent.
+            </li>
           </ul>
           <p class="left">
             You can turn off your wallet from the extension by clicking "Stop Wallet" in the extension's menu.
@@ -232,7 +244,7 @@
               Unzip the downloaded binaries and copy "monero-wallet-cli" into your new MoneroWallet folder.
             </li>
             <li>
-              In addition, download "Launch Script - Linux.zip" from the latest release on our <a target="_blank" href="https://github.com/Monero-Monitor/monero-wallet-chrome/releases">GitHub page</a>. <br>
+              In addition, download "Launch-Script-Linux.zip" from the latest release on our <a target="_blank" href="https://github.com/Monero-Monitor/monero-wallet-chrome/releases">GitHub page</a>. <br>
               Unzip the launcher script and copy "MoneroWallet.sh" into your MoneroWallet folder.
             </li>
           </ul>
@@ -306,12 +318,19 @@
                 ./MoneroWallet.sh
               </p>
               This time, the script will ask you to enter the wallet you chose before and pick a node.
+            </li>
+            <li>
+              In addition, it will ask you to pick a User Agent.
+              Your user agent should be a random string of characters and numbers - this acts to authenticate RPC requests to monero-wallet-cli.
+              You can pick a new User Agent each time you open monero-wallet-cli, or use the same one.
+            </li>
+            <li>
               Then it will launch monero-wallet-cli in rpc mode, and give you some feedback.
               Once finished, you can safely exit the script by typing "exit" or hitting the "x" button in the Terminal window.
             </li>
             <li>
-              Now check your chrome extension to see if it is connected online! <br>
-              Click the extension icon in the upper right of your browser to open the extension popup.
+              Now check your chrome extension to see if it can connect! <br>
+              Click the extension icon in the upper right of your browser to open the extension popup and log in with your User Agent.
             </li>
           </ul>
           <p class="left">
@@ -353,19 +372,19 @@
           <h4 class="left">Running a wallet in rpc mode</h4>
           <p class="left">
             To use this extension, you must launch monero-wallet-cli in rpc mode.
-            This requires that you use an extra two flags as part of your launch script, <span class="mono">--rpc-bind-ip</span> and <span class="mono">--rpc-bind-port</span>.
-            Typically, you want to bind to your localhost IP, 127.0.0.1, and to port 18082.
+            This requires that you use an extra three flags as part of your launch script, <span class="mono">--rpc-bind-ip</span>, <span class="mono">--rpc-bind-port</span>, and <span class="mono">--user-agent</span>.
+            Typically, you want to bind to your localhost IP, 127.0.0.1, and to port 18082. Your user agent should be a random string of characters and numbers - this acts to authenticate RPC requests to monero-wallet-cli. For Example:
           <p>
           <p class="terminal">
-            ./monero-wallet-cli --wallet-file MoneroWallet.bin --password xxxx --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082
+            ./monero-wallet-cli --wallet-file &lt;wallet name&gt; --password &lt;wallet password&gt; --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082 --user-agent &lt;some random string&gt;
           </p>
           <p class="left">
             For monero-wallet-cli to connect to your extension, you will need to tell the extension which port to listen on.
             If you used port 18082, you are ready to go. If not, open the extension's <a target="_blank" href="/data/html/options.html">Settings page</a> and set the correct port.
           </p>
           <p class="left">
-            Check your extension to see if it is connected online.
-            Click the extension icon in the upper right of your browser to open the extension popup.
+            After starting monero-wallet-cli in rpc mode, check your chrome extension to see if it can connect.
+            Click the extension icon in the upper right of your browser to open the extension popup and log in with your User Agent.
             It may take a few seconds for your extension to fully connect to monero-wallet-cli.
           </p>
           <div class="dyk-box">
@@ -376,7 +395,7 @@
               If you want to be able to close the wallet, we recommend using the "screen" command. For example:
             </p>
             <p class="terminal">
-              screen ./monero-wallet-cli --wallet-file MoneroWallet.bin --password xxxx --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082
+              screen ./monero-wallet-cli --wallet-file MoneroWallet.bin --password xxxx --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18082 --user-agent randomstring
             </p>
             <p class="left">
               If you have never used screen, a quick online search such as "screen command osx" should return plenty of information on how to use it.
