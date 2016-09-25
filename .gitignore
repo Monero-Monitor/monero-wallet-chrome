@@ -1,3 +1,4 @@
 *.zip
 github
 .DS_Store
+log
