@@ -10,6 +10,7 @@ p { margin: 5px; }
 .center { width: 100%; text-align: center; }
 
 #monero-wallet-cli-port { width: 100px; }
+#options-user-agent { width: 200px; }
 span#status { color: #98CD6D; line-height: 16px; }
 
 div#about { margin: 10px 0px; border: 0px solid #313131; border-top-width: 1px; }
