@@ -8,16 +8,18 @@
  * See LICENSE for terms and use.
  */
 
- chrome.webRequest.onBeforeSendHeaders.addListener(function(details){
-   for(var i=0; i < details.requestHeaders.length; ++i){
-     if(details.requestHeaders[i].name === "User-Agent"){
-       details.requestHeaders[i].value = sessionStorage.getItem('user_agent');
-       break;
-     }
-   }
-   return {requestHeaders: details.requestHeaders};
- }, {urls: ["<all_urls>"]}, ["blocking", "requestHeaders"]);
+// set "User-Agent" header information before sending request:
+chrome.webRequest.onBeforeSendHeaders.addListener(function (details) {
+  for (var i=0; i < details.requestHeaders.length; ++i) {
+    if (details.requestHeaders[i].name === "User-Agent") {
+      details.requestHeaders[i].value = wallet_info.userAgent;
+      break;
+    }
+  }
+  return {requestHeaders: details.requestHeaders};
+}, {urls: ["http://127.0.0.1/*"]}, ["blocking", "requestHeaders"]);
 
+// general wallet JSON RPC calling:
 function walletJSONrpc(port, method, params, onSuccess, onFailure) {
   // Set up JSON RPC call:
   var host = "http://127.0.0.1";
@@ -29,24 +31,33 @@ function walletJSONrpc(port, method, params, onSuccess, onFailure) {
   };
   if (params != undefined) { data.params = params; }
   var json_string = JSONbig.stringify(data);
-
-  // Javascript POST Method:
-  var xhttp = new XMLHttpRequest();
-  xhttp.onerror = function() { onFailure('HTTP Request Failed'); };
-  xhttp.open("POST", url, true);
-  xhttp.setRequestHeader("Content-type", "application/json");
-
-  xhttp.onload = function() {
-    if (xhttp.readyState == 4) {
-      try {
-        var resp = JSONbig.parse(xhttp.responseText);
-        onSuccess(resp);
-      } catch (err) {
-        onFailure('HTTP Request Failed');
+  if (wallet_info.saveUserAgent === true) {
+    // Javascript POST Method:
+    var xhttp = new XMLHttpRequest();
+    xhttp.onerror = function (err) {
+      onFailure('HTTP Request Failed');
+    };
+    xhttp.open("POST", url, true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.timeout = 2000; // time in milliseconds
+    xhttp.ontimeout = function (e) {
+      onFailure('HTTP Request Timed Out.');
+    };
+    xhttp.onload = function () {
+      if (xhttp.readyState == 4) {
+        try {
+          var resp = JSONbig.parse(xhttp.responseText);
+          onSuccess(resp);
+        } catch (err) {
+          console.log(err);
+          onFailure('HTTP Request Failed');
+        }
       }
     }
+    xhttp.send(json_string);
+  } else {
+    onFailure('User Agent not set.');
   }
-  xhttp.send(json_string);
 }
 
 // Get the balance of connected monero-wallet-cli:
