@@ -8,26 +8,27 @@
 
 <body>
 
-  <div id="monero-wallet-cli-config">
+  <div id="monero-wallet-rpc-config">
     <h2> Thank you for installing Monero Wallet for Chrome! </h2>
 
-    <p> This page is the configuration page for the extension. Here you will need to set which port the extension can use to talk to monero-wallet-cli. You can return to this page in the future from the "Settings" button in the extension menu. </p>
+    <p> This page is the configuration page for the extension. Here you will need to set which port the extension can use to talk to monero-wallet-rpc. You can return to this page in the future from the "Settings" button in the extension menu. </p>
 
     <h3> Getting Started </h3>
 
-    <p> In order to use this extension, monero-wallet-cli must be running in RPC mode on the same computer as your Chrome or Chromium browser. For help on setting this up, visit our <a target="_blank" href="/data/html/start.html">Getting Started</a> guide. </p>
+    <p> In order to use this extension, monero-wallet-rpc must be running on the same computer as your Chrome or Chromium browser. For help on setting this up, visit our <a target="_blank" href="/data/html/start.html">Getting Started</a> guide. </p>
 
-    <p>  Once monero-wallet-cli is configured and open, please specify the port monero-wallet-cli is listening on here. </p>
+    <p>  Once monero-wallet-rpc is configured and open, please specify the port monero-wallet-rpc is listening on here. </p>
 
     <form>
       <h4>RPC Port:</h4>
       <p>
-        <input type="text" id="monero-wallet-cli-port">
+        <input type="text" id="monero-wallet-rpc-port">
       </p>
-      <h4>User Agent:</h4>
+      <h4>RPC Login:</h4>
       <p>
-        <input type="checkbox" id="options-save-user-agent"> Store User Agent<br>
-        <input type="text" id="options-user-agent">
+        <input type="checkbox" id="options-save-auth"> Store Authentication<br>
+        <input type="text" id="options-username" placeholder="username"><br>
+        <input type="password" id="options-password" placeholder="password">
       </p>
       <button type="button" id="save">Save</button><!--<button type="button" id="clear">Clear</button>--> &nbsp;<span id="status"></span>
     </form>
