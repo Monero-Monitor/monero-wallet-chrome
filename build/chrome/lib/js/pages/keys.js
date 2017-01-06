@@ -5,12 +5,13 @@ var wallet_info = {
   unlockedBalance: '0',
   height: '0',
   status: "off",
-  saveUserAgent: false,
-  userAgent: ''
+  saveAuth: false,
+  username: '',
+  password: ''
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-  var request = {greeting: "Monero monero-wallet-cli Send Wallet Info"};
+  var request = {greeting: "Monero monero-wallet-rpc Send Wallet Info"};
   chrome.runtime.sendMessage(request, function (resp) {
     wallet_info = resp;
 

@@ -5,8 +5,9 @@ var wallet_info = {
   unlockedBalance: '0',
   height: '0',
   status: "off",
-  saveUserAgent: false,
-  userAgent: ''
+  saveAuth: false,
+  username: '',
+  password: ''
 };
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -14,15 +15,17 @@ document.addEventListener('DOMContentLoaded', function () {
   // Get wallet info from settings:
   chrome.storage.sync.get({
     walletPort: '',
-    saveUserAgent: false,
-    userAgent: ''
+    saveAuth: false,
+    username: '',
+    password: ''
   }, function (items) {
     // Once ready, update information:
     wallet_info.port = items.walletPort;
-    wallet_info.saveUserAgent = items.saveUserAgent;
-    wallet_info.userAgent = items.userAgent;
+    wallet_info.saveAuth = items.saveAuth;
+    wallet_info.username = items.username;
+    wallet_info.password = items.password;
     if (Number(wallet_info.port) >= 1 && Number(wallet_info.port) <= 65535) {
-      check_correct_user_agent(wallet_info);
+      check_correct_auth(wallet_info);
       get_wallet_info();
     } else {
       // If wallet port is not set correctly, take them to the options page.
@@ -34,21 +37,23 @@ document.addEventListener('DOMContentLoaded', function () {
       chrome.tabs.create({url: '/data/html/start.html'});
   });
 
-  // Login with valid User Agent
-  document.getElementById('user-agent-form').addEventListener('submit', function (e) {
+  // Login with authentication 
+  document.getElementById('auth-form').addEventListener('submit', function (e) {
     e.preventDefault();
-    wallet_info.saveUserAgent = true;
-    wallet_info.userAgent = String(document.getElementById('user-agent').value);
+    wallet_info.saveAuth = true;
+    wallet_info.username = String(document.getElementById('username').value);
+    wallet_info.password = String(document.getElementById('password').value);
 
     var request = {
-      greeting: "Monero monero-wallet-cli Update Wallet Info",
+      greeting: "Monero monero-wallet-rpc Update Wallet Info",
       newWalletPort: wallet_info.port,
-      saveUserAgent: wallet_info.saveUserAgent,
-      userAgent: wallet_info.userAgent
+      saveAuth: wallet_info.saveAuth,
+      username: wallet_info.username,
+      password: wallet_info.password
     };
     chrome.runtime.sendMessage(request, function (resp) {
       console.log(resp);
-      check_correct_user_agent(wallet_info);
+      check_correct_auth(wallet_info);
     });
     
     return false;
@@ -98,19 +103,19 @@ function removeBadge() {
   chrome.browserAction.setBadgeText({text:''});
 }
 
-var check_correct_user_agent = function (info) {
-  if (info.saveUserAgent === true) {
+var check_correct_auth = function (info) {
+  if (info.saveAuth === true) {
     getAddress(wallet_info.port,
       function (resp) {
         if (resp.hasOwnProperty('result')) {
-          var status = document.getElementById('user-agent-success');
+          var status = document.getElementById('auth-success');
           status.style.display = 'inline-block'
           setTimeout(function () {
             status.style.display = 'none';
-            document.getElementById('set-user-agent').style.display = 'none';
+            document.getElementById('set-auth').style.display = 'none';
           }, 50);
         } else {
-          var status = document.getElementById('user-agent-error');
+          var status = document.getElementById('auth-error');
           status.style.display = 'inline-block'
           setTimeout(function() {
             status.style.display = 'none';
@@ -119,7 +124,7 @@ var check_correct_user_agent = function (info) {
       },
       function (error) {
         console.log(error);
-        var status = document.getElementById('user-agent-error');
+        var status = document.getElementById('auth-error');
         status.style.display = 'inline-block'
         setTimeout(function() {
           status.style.display = 'none';
@@ -130,7 +135,7 @@ var check_correct_user_agent = function (info) {
 }
 
 var get_wallet_info = function () {
-  var request = {greeting: "Monero monero-wallet-cli Send Wallet Info"};
+  var request = {greeting: "Monero monero-wallet-rpc Send Wallet Info"};
   chrome.runtime.sendMessage(request, function (resp) {
     wallet_info.port = resp.port;
 
@@ -631,8 +636,9 @@ function sendMonero () {
         var status = document.getElementById('send-success');
         var tx_hashes = [];
         for (var i=0; i < tx_hash_list.length; i++) {
-          tx_hashes.push(tx_hash_list[i]);
-          document.getElementById('send-txhashlist-popup').innerHTML += tx_hash_list[i] + '<br>';
+          var this_hash = tx_hash_list[i];
+          tx_hashes.push(this_hash);
+          document.getElementById('send-txhashlist-popup').innerHTML += '<a target="_blank" href="http://explore.moneroworld.com/search?value=' + this_hash + '">' + this_hash + '</a><br>';
         }
 
         outgoingTxsDB.createOutgoingTx(pay_id, dests, tx_hashes, function(contact) {
@@ -663,7 +669,7 @@ function sendMonero () {
     },
     function (err) {
       var status = document.getElementById('send-error');
-      status.innerHTML = 'There was an error connecting to monero-wallet-cli.';
+      status.innerHTML = 'There was an error connecting to monero-wallet-rpc.';
       status.style.display = 'block';
       setTimeout(function() {
         status.style.display = 'none';
