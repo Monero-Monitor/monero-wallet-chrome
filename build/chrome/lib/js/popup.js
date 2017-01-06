@@ -273,7 +273,7 @@ function receiveNormalQR (payment_id, amount) {
 function getAllIndices(transfers, tx_hash) {
   var indices = [];
   for (var i = 0; i < transfers.length; i++) {
-    if (transfers[i].tx_hash.substring(1,transfers[i].tx_hash.length-1) == tx_hash) {
+    if (transfers[i].tx_hash == tx_hash) {
       indices.push(i);
     }
   }
@@ -296,7 +296,7 @@ function fillIncomingTransactionTable(tx_table_id, transfer_type) {
       var l_tr = transfers.length;
       for (var i = 0; i < l_tr; i++) {
         var transfer_i = transfers[i];
-        var transfer_hash = transfer_i.tx_hash.substring(1,transfer_i.tx_hash.length-1);
+        var transfer_hash = transfer_i.tx_hash;
 
         // If this is the first time seeing a tx hash, get all instances and process them
         if (unique_transfers.indexOf(transfer_hash) == -1) {
@@ -636,7 +636,7 @@ function sendMonero () {
         var status = document.getElementById('send-success');
         var tx_hashes = [];
         for (var i=0; i < tx_hash_list.length; i++) {
-          var this_hash = tx_hash_list[i].substring(1,tx_hash_list[i].length-1);
+          var this_hash = tx_hash_list[i];
           tx_hashes.push(this_hash);
           document.getElementById('send-txhashlist-popup').innerHTML += '<a target="_blank" href="http://explore.moneroworld.com/search?value=' + this_hash + '">' + this_hash + '</a><br>';
         }
