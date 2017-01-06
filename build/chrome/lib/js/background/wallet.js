@@ -8,8 +8,9 @@ var wallet_info = {
   unlockedBalance: '--',
   height: '--',
   status: 'off',
-  saveUserAgent: false,
-  userAgent: ''
+  saveAuth: false,
+  username: '',
+  password: ''
 };
 
 // Listen for part of the extension requesting wallet info and reply:
@@ -19,12 +20,13 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       sender.tab.url === "chrome-extension://" + chrome.runtime.id + "/data/html/send.html" ||
       sender.tab.url === "chrome-extension://" + chrome.runtime.id + "/data/html/keys.html" ||
       sender.tab.url === "chrome-extension://" + chrome.runtime.id + "/data/html/options.html") {
-    if (request.greeting == "Monero monero-wallet-cli Send Wallet Info") {
+    if (request.greeting == "Monero monero-wallet-rpc Send Wallet Info") {
       sendResponse(wallet_info);
-    } else if (request.greeting == "Monero monero-wallet-cli Update Wallet Info") {
+    } else if (request.greeting == "Monero monero-wallet-rpc Update Wallet Info") {
       wallet_info.port = request.newWalletPort;
-      wallet_info.userAgent = request.userAgent;
-      wallet_info.saveUserAgent = request.saveUserAgent;
+      wallet_info.username = request.username;
+      wallet_info.password = request.password;
+      wallet_info.saveAuth = request.saveAuth;
       getAddress(wallet_info.port,
         function (resp) {
           wallet_info.address = resp.result.address;
@@ -116,22 +118,23 @@ function get_balance() {
   }
 };
 
-//var reset_user_agent = function () {
-function reset_user_agent() {
+function reset_auth() {
   if (chrome.extension.getViews().length === 1) {
     chrome.storage.sync.get({
-      saveUserAgent: false,
-      userAgent: ''
+      saveAuth: false,
+      username: '',
+      password: ''
     }, function(items) {
-      wallet_info.saveUserAgent = items.saveUserAgent;
-      if (wallet_info.saveUserAgent === false) {
+      wallet_info.saveAuth = items.saveAuth;
+      if (wallet_info.saveAuth === false) {
           wallet_info.status = "off";
       }
-      wallet_info.userAgent = items.userAgent;
-      setTimeout(reset_user_agent, 10000);
+      wallet_info.username = items.username;
+      wallet_info.password = items.password;
+      setTimeout(reset_auth, 10000);
     });
   } else {
-    setTimeout(reset_user_agent, 10000);
+    setTimeout(reset_auth, 10000);
   }
 };
 
@@ -153,8 +156,9 @@ function removeErrorBadge() {
 function monitorWalletInfo() {
   chrome.storage.sync.get({
     walletPort: '',
-    saveUserAgent: false,
-    userAgent: ''
+    saveAuth: false,
+    username: '',
+    password: ''
   }, function(items) {
     wallet_info.port = items.walletPort;
 
@@ -169,14 +173,15 @@ function monitorWalletInfo() {
       wallet_info.port = 18082;
     }
 
-    // If user agent is saved, add it to background page
-    if (items.saveUserAgent === true) {
-        wallet_info.userAgent = items.userAgent;
-        wallet_info.saveUserAgent = true;
+    // If authentication is saved, add it to background page
+    if (items.saveAuth === true) {
+        wallet_info.username = items.username;
+        wallet_info.password = items.password;
+        wallet_info.saveAuth = true;
     }
 
     // Start wallet info polling:
-    reset_user_agent();
+    reset_auth();
     get_status();
     get_balance();
     get_height();

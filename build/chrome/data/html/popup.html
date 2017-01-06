@@ -16,21 +16,22 @@
 </head>
 <body>
 
-  <div id="set-user-agent">
+  <div id="set-auth">
 
     <h1 class="center">Please Login</h1>
 
-    <form id="user-agent-form" method="post" class="form">
-      <input type="password" id="user-agent" placeholder="Please enter your wallet User Agent.">
+    <form id="auth-form" method="post" class="form">
+      <input type="text" id="username" placeholder="RPC login username"><br>
+      <input type="password" id="password" placeholder="RPC login password"><br>
       <button type="submit">Unlock</button>
       <button type="button" id="login-whats-this">What's This?</button>
     </form>
 
-    <div class="errormsg" id="user-agent-error">
-      There was an error logging in. Please check your <span class="bold">Password</span> and <span class="bold">User Agent</span> and try again.
+    <div class="errormsg" id="auth-error">
+      There was an error logging in. Please check your <span class="bold">username</span> and <span class="bold">password</span> for RPC login and try again.
     </div>
 
-    <div class="successmsg" id="user-agent-success">
+    <div class="successmsg" id="auth-success">
       Login successful.
     </div>
 
@@ -65,11 +66,11 @@
       <h3> Wallet Status: </h3>
 
       <div class="errormsg" id="status-error" style="display: inline-block;">
-        monero-wallet-cli is not available over RPC at Port <span id="status-port"></span>.
+        monero-wallet-rpc is not available at Port <span id="status-port"></span>.
       </div>
 
       <div class="successmsg" id="status-success">
-        monero-wallet-cli was successfully closed.
+        monero-wallet-rpc was successfully closed.
       </div>
     </div>
 

@@ -29,7 +29,7 @@ function openMoneroWalletCLIsend(href) {
     mixin: (parsed_href.hasOwnProperty("mixin") ? parsed_href.mixin : 3)
   };
 
-  var request = {greeting: "Monero monero-wallet-cli Payment Request", href: href_json};
+  var request = {greeting: "Monero monero-wallet-rpc Payment Request", href: href_json};
   chrome.runtime.sendMessage(request, function(resp) { console.log(resp); });
 }
 
