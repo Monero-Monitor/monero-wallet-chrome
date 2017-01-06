@@ -157,7 +157,7 @@ function sendMoneroNewTab () {
         for (var i=0; i < tx_hash_list.length; i++) {
           var this_hash = tx_hash_list[i].substring(1,tx_hash_list[i].length-1);
           tx_hashes.push(this_hash);
-          document.getElementById('send-txhashlist-popup').innerHTML += this_hash + '<br>';
+          document.getElementById('send-txhashlist-popup').innerHTML += '<a target="_blank" href="http://explore.moneroworld.com/search?value=' + this_hash + '">' + this_hash + '</a><br>';
         }
 
         outgoingTxsDB.createOutgoingTx(pay_id, dests, tx_hashes, function(contact) {
