@@ -155,9 +155,8 @@ function sendMoneroNewTab () {
 
         var tx_hashes = [];
         for (var i=0; i < tx_hash_list.length; i++) {
-          var this_hash = tx_hash_list[i].substring(1,tx_hash_list[i].length-1);
-          tx_hashes.push(this_hash);
-          document.getElementById('send-txhashlist-popup').innerHTML += this_hash + '<br>';
+          tx_hashes.push(tx_hash_list[i]);
+          document.getElementById('send-txhashlist-popup').innerHTML += tx_hash_list[i] + '<br>';
         }
 
         outgoingTxsDB.createOutgoingTx(pay_id, dests, tx_hashes, function(contact) {
